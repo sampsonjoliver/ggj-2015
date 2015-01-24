@@ -4,14 +4,13 @@ using UnityEngine.UI;
 
 public class Fader : MonoBehaviour {
     public float defaultFadeSpeed = 0.5f;
-    public GameObject UiCanvasFader;
 
     private bool isSceneStarting = true;
     private bool isSceneEnding = false;
 
     private bool isFadeRequested = false;
     private float currentFadeSpeed;
-    private Color requestedFadeColor;
+    private bool requestedFadeEnabledState;
 
     private Image faderImage;
 
@@ -19,18 +18,25 @@ public class Fader : MonoBehaviour {
 	void Awake () {
         faderImage = GameObject.FindGameObjectWithTag(Tags.fader).GetComponent<Image>();
         faderImage.color = Color.black;
+        currentFadeSpeed = defaultFadeSpeed;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (isSceneStarting)
-            isSceneStarting = !FadeToClear(defaultFadeSpeed);
+        {
+            if (FadeToClear(defaultFadeSpeed))
+            {
+                isSceneStarting = false;
+                Debug.Log("Scene Started");
+            }
+        }
         else if (isSceneEnding)
         {
-            isSceneEnding = !FadeToBlack(defaultFadeSpeed);
-
-            if (!isSceneEnding)
+            if (FadeToBlack(defaultFadeSpeed))
             {
+                isSceneEnding = false;
+                Debug.Log("Scene Ended");
                 // TODO notify things of us having finished the scene now.
                 // Most like this'll be when the player is dead and we need to load
                 // the level again. Or when finishing a level and loading a new one.
@@ -38,9 +44,36 @@ public class Fader : MonoBehaviour {
         }
         else if (isFadeRequested)
         {
-            FadeToColor(requestedFadeColor, currentFadeSpeed);
+            faderImage.enabled = true;
+            if (requestedFadeEnabledState)
+            {
+                Debug.Log("Black Fade Requested");
+                if (FadeToBlack(currentFadeSpeed))
+                {
+                    Debug.Log("Black Fade Ended");
+                    isFadeRequested = false;
+                    currentFadeSpeed = defaultFadeSpeed;
+                }
+            }
+            else
+            {
+                Debug.Log("Clear Fade Requested");
+                if (FadeToClear(currentFadeSpeed))
+                {
+                    Debug.Log("Clear Fade Ended");
+                    isFadeRequested = false;
+                    currentFadeSpeed = defaultFadeSpeed;
+                }
+            }
         }
 	}
+
+    public void RequestFade(bool isFadeEnabled, float fadeSpeed = 0.5f)
+    {
+        this.requestedFadeEnabledState = isFadeEnabled;
+        currentFadeSpeed = fadeSpeed;
+        this.isFadeRequested = true;
+    }
 
     void StartScene()
     {
@@ -81,5 +114,4 @@ public class Fader : MonoBehaviour {
     {
         faderImage.color = Color.Lerp(faderImage.color, color, fadeSpeed * Time.deltaTime);
     }
-
 }

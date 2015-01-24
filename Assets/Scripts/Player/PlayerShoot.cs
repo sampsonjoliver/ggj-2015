@@ -21,7 +21,7 @@ public class PlayerShoot : MonoBehaviour
 	{
 		if(cooldownTimer > 0f)
 			cooldownTimer -= Time.deltaTime;
-		else if(Input.GetMouseButtonDown (0) && actions.getActionEnabled(actions.playerShoot))
+		else if(Input.GetMouseButtonDown (0) && actions.getActionEnabled(ModifierActions.playerShoot))
 		{
 			Shoot();
 			cooldownTimer = cooldownTime;
