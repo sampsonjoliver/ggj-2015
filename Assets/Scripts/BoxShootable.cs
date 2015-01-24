@@ -5,7 +5,6 @@ public class BoxShootable : Shootable
 {
 	public override void Shoot()
 	{
-        Debug.Log("things");
-		GameObject.Destroy (this.gameObject);
+		Destroy (this.gameObject);
 	}
 }

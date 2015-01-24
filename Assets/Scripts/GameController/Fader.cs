@@ -80,7 +80,7 @@ public class Fader : MonoBehaviour {
         isSceneStarting = true;
     }
 
-    void EndScene()
+    public void EndScene()
     {
         isSceneStarting = false;
     }

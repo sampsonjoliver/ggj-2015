@@ -6,8 +6,10 @@ public class PlayerShoot : MonoBehaviour
 {
 	public float cooldownTime = 1f;
 	private float cooldownTimer;
+
 	public float speed = 10f;
 	public float range = 50f;
+	public float scaleFactor;
 	public float scaleFactor = 1f;
 	private ModifierActions actions;
 	
@@ -60,7 +62,7 @@ public class PlayerShoot : MonoBehaviour
 		
 		GameObject spawn = (GameObject)GameObject.Instantiate(particle);
 		spawn.transform.position = this.transform.position;
-		Particle laser = spawn.transform.FindChild ("Laser").gameObject.GetComponent<Particle>();
+		Particle laser = spawn.transform.FindChild("Laser").gameObject.GetComponent<Particle>();
 		laser.transform.position = Vector3.Lerp (this.transform.position, end, 0.5f);
 		laser.transform.rotation = this.transform.rotation;
 		
@@ -72,7 +74,6 @@ public class PlayerShoot : MonoBehaviour
 		effects.Add (newEffect); */
 		if(cast.collider != null && cast.collider.gameObject.tag == Tags.shootable)
 		{
-            Debug.Log(";lkdsahnfkilah");
 			Shootable shootable = cast.collider.gameObject.GetComponent<Shootable>();
 			shootable.Shoot ();
 			//newEffect.setShootable(shootable);
