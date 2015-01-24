@@ -65,6 +65,7 @@ public class PlayerShoot : MonoBehaviour
 		effects.Add (newEffect); */
 		if(cast.collider != null && cast.collider.gameObject.tag == Tags.shootable)
 		{
+            Debug.Log(";lkdsahnfkilah");
 			Shootable shootable = cast.collider.gameObject.GetComponent<Shootable>();
 			shootable.Shoot ();
 			//newEffect.setShootable(shootable);
