@@ -7,10 +7,9 @@ public class PlayerInput : MonoBehaviour {
     private bool isFacingRight;
 
     public float horizontalVelocity = 10f;
-    public float gravityVelocity = 9.81f;
     public float jumpVelocity = 4f;
 
-    private const float groundedMinDist = 0.1f;
+    private const float groundedMinDist = 0.2f;
 
 	// Use this for initialization
 	void Start () {
@@ -73,11 +72,6 @@ public class PlayerInput : MonoBehaviour {
         }
         Debug.Log("Not contact with ground");
         return false;
-    }
-
-    void ApplyGravity()
-    {
-        rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, rigidbody2D.velocity.y - (gravityVelocity * Time.deltaTime));
     }
 
     void SetPlayerFacingDirection(bool isFacingRight)
