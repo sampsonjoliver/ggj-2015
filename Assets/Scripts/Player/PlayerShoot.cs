@@ -60,7 +60,9 @@ public class PlayerShoot : MonoBehaviour
 		Debug.DrawLine (this.transform.position, end);
 		
 		GameObject spawn = (GameObject)GameObject.Instantiate(particle);
-		spawn.transform.position = this.transform.position;
+		Vector3 spawnPos = this.transform.position;
+		spawnPos.z = spawn.transform.position.z;
+		spawn.transform.position = spawnPos;
 		Particle laser = spawn.transform.FindChild("Laser").gameObject.GetComponent<Particle>();
 		laser.transform.position = Vector3.Lerp (this.transform.position, end, 0.5f);
 		laser.transform.rotation = this.transform.rotation;
