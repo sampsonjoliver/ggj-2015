@@ -73,7 +73,7 @@ public class PlayerGrab : MonoBehaviour
 		grabbed.SetColor (Color.white);
 		grabbed = null;
 		light.enabled = false;
-		playerActions.setActionEnabled(ModifierActions.grabbing, false);
+		playerActions.setActionEnabled(ModifierActions.notGrabbing, true);
 	}
 	
 	private void Grab()
@@ -85,6 +85,6 @@ public class PlayerGrab : MonoBehaviour
 		grabbed.rigidbody2D.isKinematic = true;
 		grabbed.SetColor (grabColor);
 		light.enabled = true;
-		playerActions.setActionEnabled(ModifierActions.grabbing, true);
+		playerActions.setActionEnabled(ModifierActions.notGrabbing, false);
 	}
 }
