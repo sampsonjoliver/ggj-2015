@@ -12,7 +12,7 @@ public class PlayerArm : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        // DON'T FUCKING CHANGE THIS SHIT - nvm, fix this shit
+        // DON'T FUCKING CHANGE THIS SHIT - nvm, fix this shit - nvm, all g :'D
 		Vector3 mouse = Input.mousePosition;
 		Vector3 arm = Camera.main.WorldToScreenPoint(this.transform.position);
 		//Vector3 dir = !input.IsPlayerFacingRight() ? mouse - arm : arm - mouse;

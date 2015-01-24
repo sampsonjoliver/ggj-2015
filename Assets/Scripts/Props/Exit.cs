@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Exit : MonoBehaviour
 {
+    private DoorBehaviour doorBehaviour;
+    private bool canExit = false;
 	public string nextLevel;
 	private bool exitLevel = false;
 	private bool notQuite = false;
@@ -29,7 +31,11 @@ public class Exit : MonoBehaviour
 	
 	public void Update()
 	{
-		if(exitLevel)
+        if (doorBehaviour.GetSwitchState())
+        {
+            canExit = true;
+        }
+		if(exitLevel && canExit)
 		{
 			exitLevel = false;
 			notQuite = true;
