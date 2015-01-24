@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Exit : MonoBehaviour
 {
+    private DoorSwitchBehaviour doorBehaviour;
+    public bool canExit = true;
 	public string nextLevel;
 	private bool exitLevel = false;
 	private bool notQuite = false;
@@ -15,6 +17,7 @@ public class Exit : MonoBehaviour
 	{
 		fadeCount = 0.0f;
 		myFader = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponentInChildren<Fader>();
+        doorBehaviour = GetComponent<DoorSwitchBehaviour>();
 	}
 	
 	public void OnTriggerEnter2D(Collider2D other)
@@ -29,7 +32,11 @@ public class Exit : MonoBehaviour
 	
 	public void Update()
 	{
-		if(exitLevel)
+        if (doorBehaviour.GetSwitchState())
+        {
+            canExit = true;
+        }
+		if(exitLevel && canExit)
 		{
 			exitLevel = false;
 			notQuite = true;
