@@ -42,10 +42,10 @@ public class ModifierBehaviour : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Disable: " + actionModified);
+        //Debug.Log("Disable: " + actionModified);
         if (other.gameObject == target)
         {
-            Debug.Log("Disable: " + actionModified);
+            //Debug.Log("Disable: " + actionModified);
             modifierActions.setActionEnabled(actionModified, false);
         }
     }

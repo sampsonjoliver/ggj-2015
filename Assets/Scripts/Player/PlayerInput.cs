@@ -67,10 +67,10 @@ public class PlayerInput : MonoBehaviour {
         if (hit.collider != null)
         {
             // We have hit the ground, huzzah
-            Debug.Log("In contact with something at " + hit.distance);
+            //Debug.Log("In contact with something at " + hit.distance);
             return true;
         }
-        Debug.Log("Not contact with ground");
+        //Debug.Log("Not contact with ground");
         return false;
     }
 
