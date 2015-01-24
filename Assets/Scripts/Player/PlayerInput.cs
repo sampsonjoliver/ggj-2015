@@ -4,6 +4,8 @@ using System.Collections;
 public class PlayerInput : MonoBehaviour {
     private ModifierActions playerActions;
     private Collider2D playerCollider;
+    private Animator anim;
+    private AnimatorHashIds hash;
     private bool isFacingRight;
 
     public float horizontalVelocity = 10f;
@@ -11,10 +13,15 @@ public class PlayerInput : MonoBehaviour {
 
     private const float groundedMinDist = 0.3f;
 
+    public Transform transformToScale;
+
 	// Use this for initialization
 	void Start () {
         playerActions = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<ModifierActions>();
         playerCollider = gameObject.GetComponent<Collider2D>();
+        anim = GetComponentInChildren<Animator>();
+        
+        hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<AnimatorHashIds>();
 	}
 	
 	// Update is called once per frame
@@ -35,16 +42,19 @@ public class PlayerInput : MonoBehaviour {
             // Apply velocity left
             rigidbody2D.velocity = new Vector2(-horizontalVelocity, rigidbody2D.velocity.y);
             SetPlayerFacingDirection(false);
+            anim.SetBool(hash.walkingBool, true);
         }
         else if (horizontalMovement > 0f && playerActions.getActionEnabled(ModifierActions.playerRight))
         {
             // Other things
             rigidbody2D.velocity = new Vector2(horizontalVelocity, rigidbody2D.velocity.y);
             SetPlayerFacingDirection(true);
+            anim.SetBool(hash.walkingBool, true);
         }
 		else
 		{
 			rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+            anim.SetBool(hash.walkingBool, false);
 		}
 		
         // Jump + other stuff
@@ -57,7 +67,18 @@ public class PlayerInput : MonoBehaviour {
             if (CheckGrounded())
             {
                 rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpVelocity);
+                anim.SetBool(hash.jumpingBool, true);
             }
+        }
+        
+        if (rigidbody2D.velocity.y < 0)
+        {
+            anim.SetBool(hash.jumpingBool, false);
+            anim.SetBool(hash.fallingBool, true);
+        }
+        else if (anim.GetBool(hash.fallingBool) == true && Mathf.Abs(rigidbody2D.velocity.y) <= 0.05f)
+        {
+            anim.SetBool(hash.fallingBool, false);
         }
     }
 
@@ -74,14 +95,26 @@ public class PlayerInput : MonoBehaviour {
         return false;
     }
 
-    void SetPlayerFacingDirection(bool isFacingRight)
+    public void SetPlayerFacingDirection(bool isFacingRight)
     {
         if (this.isFacingRight != isFacingRight)
         {
             this.isFacingRight = isFacingRight;
-            Vector3 theScale = transform.localScale;
-            //theScale.x = isFacingRight ? 1 : -1;
-            transform.localScale = theScale;
+            Vector3 theScale = transformToScale.localScale;
+            theScale.x = isFacingRight ? -Mathf.Abs(theScale.x) : Mathf.Abs(theScale.x);
+            transformToScale.localScale = theScale;
         }
+    }
+
+    public bool IsPlayerFacingRight()
+    {
+        return this.isFacingRight;
+    }
+
+    public void FlipPlayer()
+    {
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }

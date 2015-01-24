@@ -3,16 +3,19 @@ using System.Collections;
 
 public class Grabbable : MonoBehaviour
 {
-	private SpriteRenderer sprite;
+	private Light light;
 	
 	// Use this for initialization
 	void Start()
 	{
-		sprite = GetComponent<SpriteRenderer>();
+		light = GetComponentInChildren<Light>();
 	}
 	
-	public void SetColor(Color color)
+	public void SetLight(bool enabled)
 	{
-		this.sprite.color = color;
+		if(light != null)
+		{
+			light.enabled = enabled;
+		}
 	}
 }
