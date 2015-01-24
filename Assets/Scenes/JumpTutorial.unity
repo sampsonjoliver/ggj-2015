@@ -165,6 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c364d15a9a8b4f4397abfa2db545c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  horizontalVelocity: 10
+  gravityVelocity: 9.81000042
+  jumpVelocity: 4
 --- !u!212 &67826882
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -397,7 +400,7 @@ GameObject:
   - 4: {fileID: 484623627}
   - 212: {fileID: 484623626}
   - 61: {fileID: 484623625}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +464,7 @@ GameObject:
   - 4: {fileID: 568685166}
   - 212: {fileID: 568685165}
   - 61: {fileID: 568685164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +528,7 @@ GameObject:
   - 4: {fileID: 779193913}
   - 212: {fileID: 779193912}
   - 61: {fileID: 779193911}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,7 +592,7 @@ GameObject:
   - 4: {fileID: 969082889}
   - 212: {fileID: 969082888}
   - 61: {fileID: 969082887}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -789,7 +792,7 @@ GameObject:
   - 4: {fileID: 1027631521}
   - 212: {fileID: 1027631520}
   - 61: {fileID: 1027631519}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -901,7 +904,7 @@ GameObject:
   - 4: {fileID: 1110914631}
   - 212: {fileID: 1110914630}
   - 61: {fileID: 1110914629}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -965,7 +968,7 @@ GameObject:
   - 4: {fileID: 1267115362}
   - 212: {fileID: 1267115361}
   - 61: {fileID: 1267115360}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1077,7 +1080,7 @@ GameObject:
   - 4: {fileID: 1334981438}
   - 212: {fileID: 1334981437}
   - 61: {fileID: 1334981436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1368,7 +1371,7 @@ GameObject:
   - 4: {fileID: 2060981567}
   - 212: {fileID: 2060981566}
   - 61: {fileID: 2060981565}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1476,7 +1479,7 @@ GameObject:
   - 4: {fileID: 2138335238}
   - 212: {fileID: 2138335237}
   - 61: {fileID: 2138335236}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
