@@ -9,7 +9,6 @@ public class PlayerShoot : MonoBehaviour
 
 	public float speed = 10f;
 	public float range = 50f;
-	public float scaleFactor;
 	public float scaleFactor = 1f;
 	private ModifierActions actions;
 	
