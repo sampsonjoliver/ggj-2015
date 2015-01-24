@@ -16,7 +16,7 @@ public class PlayerGrab : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown (KeyCode.Space) && playerActions.getActionEnabled(ModifierActions.playerGrab))
+		if(Input.GetMouseButtonDown(1) && playerActions.getActionEnabled(playerActions.playerGrab))
 		{
 			if(grabbed != null)
 			{
@@ -43,7 +43,7 @@ public class PlayerGrab : MonoBehaviour
 			{
 				closestGrab.IsSelected(false);
 				closestGrab = grab;
-				grab.IsSelected(false);
+				grab.IsSelected(true);
 			}
 		}
 	}
@@ -63,7 +63,6 @@ public class PlayerGrab : MonoBehaviour
 	
 	private void Drop()
 	{
-		grabbed.transform.localPosition = new Vector3(
 		grabbed.transform.parent = null;
 		grabbed.collider2D.enabled = true;
 		grabbed.rigidbody2D.isKinematic = false;
