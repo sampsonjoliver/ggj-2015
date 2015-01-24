@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 417978}
   - 212: {fileID: 21217978}
   - 61: {fileID: 6117978}
+  - 114: {fileID: 11418104}
   m_Layer: 0
   m_Name: ShootGround
   m_TagString: Untagged
@@ -40,6 +41,17 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 7.94999981, y: .289999992}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11418104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3fd45e42fef67418d6289c5aca9ec7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21217978
 SpriteRenderer:
   m_ObjectHideFlags: 1
