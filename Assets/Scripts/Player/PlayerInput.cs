@@ -3,22 +3,26 @@ using System.Collections;
 
 public class PlayerInput : MonoBehaviour {
     private ModifierActions playerActions;
+    private Collider2D playerCollider;
     private bool isFacingRight;
 
     private const float horizontalVelocity = 10f;
     private const float gravityVelocity = 9.81f;
-    private const float jumpVelocity = 10f;
+    private const float jumpVelocity = 4f;
+
+    private const float groundedMinDist = 0.1f;
 
 	// Use this for initialization
 	void Start () {
-        playerActions = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<ModifierActions>();    
+        playerActions = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<ModifierActions>();
+        playerCollider = gameObject.GetComponent<Collider2D>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         //ApplyGravity();
         HandleHorizontalMovement();
-        
+        HandleVerticalMovement();
 
         // Jump + other stuff
 	}
@@ -26,26 +30,47 @@ public class PlayerInput : MonoBehaviour {
     void HandleHorizontalMovement()
     {
         float horizontalMovement = Input.GetAxis("Horizontal");
-        if (horizontalMovement < 0f && playerActions.getActionEnabled(playerActions.playerLeft))
+        
+        if (horizontalMovement < 0f && playerActions.getActionEnabled(ModifierActions.playerLeft))
         {
             // Apply velocity left
             rigidbody2D.velocity = new Vector2(-horizontalVelocity, rigidbody2D.velocity.y);
             isFacingRight = false;
+            
         }
-        else if (horizontalMovement > 0f && playerActions.getActionEnabled(playerActions.playerRight))
+        else if (horizontalMovement > 0f && playerActions.getActionEnabled(ModifierActions.playerRight))
         {
             // Other things
             rigidbody2D.velocity = new Vector2(horizontalVelocity, rigidbody2D.velocity.y);
             isFacingRight = true;
+            
         }
+        else
+            rigidbody2D.velocity = new Vector2(0f, rigidbody2D.velocity.y);
     }
 
     void HandleVerticalMovement()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            
+            if (CheckGrounded())
+            {
+                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpVelocity);
+            }
         }
+    }
+
+    bool CheckGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, (playerCollider.collider2D.bounds.size.y / 2) + groundedMinDist, LayerMask.GetMask(Layers.Environment));
+        if (hit.collider != null)
+        {
+            // We have hit the ground, huzzah
+            Debug.Log("In contact with something at " + hit.distance);
+            return true;
+        }
+        Debug.Log("Not contact with ground");
+        return false;
     }
 
     void ApplyGravity()

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class ModifierActions : MonoBehaviour {
     private Dictionary<string, bool> actionList;
 
-    public /*const*/ string playerLeft;
-    public /*const*/ string playerRight;
-    public /*const*/ string playerJump;
+    public const string playerLeft = "left";
+    public const string playerRight = "right";
+    public const string playerJump = "jump";
     public /*const*/ string playerShoot;
     public /*const*/ string playerGrab;
     public /*const*/ string cameraEnabled;
@@ -24,8 +24,11 @@ public class ModifierActions : MonoBehaviour {
 
     public bool getActionEnabled(string actionName)
     {
-        bool isEnabled = true;
-        actionList.TryGetValue(actionName, out isEnabled);
+        bool isEnabled;
+        bool exists = actionList.TryGetValue(actionName, out isEnabled);
+        if (!exists)
+            return true;
+
         return isEnabled;
     }
 	
