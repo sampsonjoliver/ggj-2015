@@ -17,11 +17,18 @@ public class PlayerInput : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //ApplyGravity();
+        HandleHorizontalMovement();
+        
 
+        // Jump + other stuff
+	}
+
+    void HandleHorizontalMovement()
+    {
         float horizontalMovement = Input.GetAxis("Horizontal");
         if (horizontalMovement < 0f && playerActions.getActionEnabled(playerActions.playerLeft))
         {
-            // Things
+            // Apply velocity left
             rigidbody2D.velocity = new Vector2(-horizontalVelocity, rigidbody2D.velocity.y);
             isFacingRight = false;
         }
@@ -31,9 +38,15 @@ public class PlayerInput : MonoBehaviour {
             rigidbody2D.velocity = new Vector2(horizontalVelocity, rigidbody2D.velocity.y);
             isFacingRight = true;
         }
+    }
 
-        // Jump + other stuff
-	}
+    void HandleVerticalMovement()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            
+        }
+    }
 
     void ApplyGravity()
     {
@@ -42,11 +55,12 @@ public class PlayerInput : MonoBehaviour {
 
     void SetPlayerFacingDirection(bool isFacingRight)
     {
-        this.isFacingRight = isFacingRight;
-
-        // legacy code
-        Vector3 theScale = transform.localScale;
-        theScale.x = isFacingRight ? 1 : -1;
-        transform.localScale = theScale;
+        if (this.isFacingRight != isFacingRight)
+        {
+            this.isFacingRight = isFacingRight;
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
     }
 }
