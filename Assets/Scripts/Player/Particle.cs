@@ -6,7 +6,12 @@ public class Particle : MonoBehaviour
 	private float lifetime;
 	public float duration;
 	public float angle;
-	private float degreesPerSecond;
+	public float startScale = 1f;
+	
+	public bool modifyOpacity = true;
+	public bool modifyRotate = true;
+	public bool modifyVerticalScale = true;
+	public bool modifyHorizontalScale = true;
 	
 	private SpriteRenderer renderer2D;
 	
@@ -14,7 +19,6 @@ public class Particle : MonoBehaviour
 	void Start () {
 		renderer2D = this.GetComponent<SpriteRenderer>();
 		lifetime = duration;
-		degreesPerSecond = angle / duration;
 	}
 	
 	// Update is called once per frame
@@ -23,17 +27,26 @@ public class Particle : MonoBehaviour
 		lifetime -= Time.deltaTime;
 		if(lifetime <= 0)
 		{
-			GameObject.Destroy (this.gameObject);
+			GameObject.Destroy (this.transform.parent.gameObject);
 		}
 		else
 		{
 			float lerp = lifetime / duration;
-			float angle = Mathf.Lerp (0, this.angle, lerp);
-			float scale = Mathf.Lerp (0, 1, lerp);
-			float opacity = Mathf.Lerp (0, 1, lerp);
-			this.transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-			this.transform.localScale = Vector3.one * scale;
-			renderer2D.color = new Color(1, 1, 1, opacity);
+			if(modifyRotate)
+			{
+				float angle = Mathf.Lerp (0, this.angle, lerp);
+				this.transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+			}
+			float scale = Mathf.Lerp (0, startScale, lerp);
+			if(modifyVerticalScale)
+				this.transform.localScale = new Vector3(this.transform.localScale.x, scale, 1);
+			if(modifyHorizontalScale)
+				this.transform.localScale = new Vector3(scale, this.transform.localScale.y, 1);
+			if(modifyOpacity)
+			{
+				float opacity = Mathf.Lerp (0, 1, lerp);
+				renderer2D.color = new Color(renderer2D.color.r, renderer2D.color.g, renderer2D.color.b, opacity);
+			}		
 		}
 	}
 }

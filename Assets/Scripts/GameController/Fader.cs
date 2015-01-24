@@ -28,7 +28,7 @@ public class Fader : MonoBehaviour {
             if (FadeToClear(defaultFadeSpeed))
             {
                 isSceneStarting = false;
-                Debug.Log("Scene Started");
+                //Debug.Log("Scene Started");
             }
         }
         else if (isSceneEnding)
@@ -36,7 +36,7 @@ public class Fader : MonoBehaviour {
             if (FadeToBlack(defaultFadeSpeed))
             {
                 isSceneEnding = false;
-                Debug.Log("Scene Ended");
+                //Debug.Log("Scene Ended");
                 // TODO notify things of us having finished the scene now.
                 // Most like this'll be when the player is dead and we need to load
                 // the level again. Or when finishing a level and loading a new one.
@@ -68,7 +68,7 @@ public class Fader : MonoBehaviour {
         }
 	}
 
-    public void RequestFade(bool isFadeEnabled, float fadeSpeed = 0.5f)
+    public void RequestFade(bool isFadeEnabled, float fadeSpeed)
     {
         this.requestedFadeEnabledState = isFadeEnabled;
         currentFadeSpeed = fadeSpeed;
