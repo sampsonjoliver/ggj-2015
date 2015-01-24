@@ -1,0 +1,102 @@
+fileFormatVersion: 2
+guid: 00e6d26fb85c9874085a59cbb7f8c755
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: roomba
+    21300002: swiffer1
+    21300004: swidder2
+    21300006: swiffer3
+    21300008: swiffer4
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: roomba
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 251
+        width: 525
+        height: 237
+      alignment: 9
+      pivot: {x: .454258621, y: .0842146054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: swiffer1
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 137
+        width: 162
+        height: 70
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: swidder2
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 138
+        width: 162
+        height: 68
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: swiffer3
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 29
+        width: 162
+        height: 70
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: swiffer4
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 25
+        width: 162
+        height: 67
+      alignment: 2
+      pivot: {x: .5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
