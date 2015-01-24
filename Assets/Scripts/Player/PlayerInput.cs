@@ -9,7 +9,7 @@ public class PlayerInput : MonoBehaviour {
     public float horizontalVelocity = 10f;
     public float jumpVelocity = 4f;
 
-    private const float groundedMinDist = 0.2f;
+    private const float groundedMinDist = 0.3f;
 
 	// Use this for initialization
 	void Start () {
@@ -52,7 +52,7 @@ public class PlayerInput : MonoBehaviour {
 
     void HandleVerticalMovement()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && playerActions.getActionEnabled(ModifierActions.playerJump))
         {
             if (CheckGrounded())
             {

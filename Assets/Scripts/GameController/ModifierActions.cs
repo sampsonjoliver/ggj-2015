@@ -8,9 +8,9 @@ public class ModifierActions : MonoBehaviour {
     public const string playerLeft = "left";
     public const string playerRight = "right";
     public const string playerJump = "jump";
-    public /*const*/ string playerShoot;
-    public /*const*/ string playerGrab;
-    public /*const*/ string cameraEnabled;
+    public const string playerShoot = "shoot";
+    public const string playerGrab = "grab";
+    public const string cameraEnabled = "blackout";
 
 	// Use this for initialization
 	void Start () {
@@ -19,12 +19,11 @@ public class ModifierActions : MonoBehaviour {
 
     public void setActionEnabled(string actionName, bool isEnabled)
     {
-        actionList.Add(actionName, isEnabled);
+        actionList[actionName] = isEnabled;
     }
 
     public bool getActionEnabled(string actionName)
     {
-
         bool isEnabled;
         bool exists = actionList.TryGetValue(actionName, out isEnabled);
         if (!exists)
