@@ -68,7 +68,7 @@ public class Fader : MonoBehaviour {
         }
 	}
 
-    public void RequestFade(bool isFadeEnabled, float fadeSpeed = 0.5f)
+    public void RequestFade(bool isFadeEnabled, float fadeSpeed)
     {
         this.requestedFadeEnabledState = isFadeEnabled;
         currentFadeSpeed = fadeSpeed;
