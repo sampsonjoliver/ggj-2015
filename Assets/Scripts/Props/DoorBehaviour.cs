@@ -1,17 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DoorBehaviour : Switchable {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+public class DoorSwitchBehaviour : Switchable {
 
     protected override void SwitchStateOn()
     {
