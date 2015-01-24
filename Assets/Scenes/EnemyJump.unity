@@ -943,6 +943,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 183668, guid: 0125d0f4865437e4ea6811fcc1f16839, type: 2}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
+    - target: {fileID: 183668, guid: 0125d0f4865437e4ea6811fcc1f16839, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0125d0f4865437e4ea6811fcc1f16839, type: 2}
   m_RootGameObject: {fileID: 1517018908}
@@ -1815,9 +1823,9 @@ GameObject:
   - 212: {fileID: 1517018910}
   - 114: {fileID: 1517018909}
   - 114: {fileID: 1517018912}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
