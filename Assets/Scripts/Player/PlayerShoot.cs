@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerShoot : MonoBehaviour
 {
@@ -7,9 +8,12 @@ public class PlayerShoot : MonoBehaviour
 	private float cooldownTimer;
 	private ModifierActions actions;
 	
+	private List<ShootEffect> effects;
+	
 	// Use this for initialization
 	void Start () {
 		actions = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<ModifierActions>();
+		effects = new List<ShootEffect>();
 	}
 	
 	// Update is called once per frame
