@@ -8,4 +8,5 @@ public class Tags : MonoBehaviour {
     public const string modifier = "Modifier";
     public const string fader = "Fader";
     public const string respawn = "Respawn";
+    public const string grabbable = "Grabbable";
 }

@@ -23,15 +23,19 @@ public class PlayerInput : MonoBehaviour {
         {
             // Things
             rigidbody2D.velocity = new Vector2(-horizontalVelocity, rigidbody2D.velocity.y);
-            isFacingRight = false;
+            SetPlayerFacingDirection(false);
         }
         else if (horizontalMovement > 0f && playerActions.getActionEnabled(playerActions.playerRight))
         {
             // Other things
             rigidbody2D.velocity = new Vector2(horizontalVelocity, rigidbody2D.velocity.y);
-            isFacingRight = true;
+            SetPlayerFacingDirection(true);
         }
-
+		else
+		{
+			rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+		}
+		
         // Jump + other stuff
 	}
 
