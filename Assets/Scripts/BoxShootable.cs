@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BoxShootable : Shootable {
-
-	
+public class BoxShootable : Shootable
+{
 	public override void Shoot()
 	{
-		Debug.Log ("Shootable");
+		Destroy (this);
 	}
 }
