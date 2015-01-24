@@ -7,6 +7,7 @@ public class PlayerShoot : MonoBehaviour
 	public float cooldownTime = 1f;
 	private float cooldownTimer;
 	public float speed = 10f;
+	public float range = 50f;
 	private ModifierActions actions;
 	
 	private List<ShootEffect> effects;
@@ -51,8 +52,8 @@ public class PlayerShoot : MonoBehaviour
 	void Shoot()
 	{
 		// Raycast
-		RaycastHit2D cast = Physics2D.Raycast (this.transform.position, this.transform.right, 10, LayerMask.GetMask (Layers.Environment));
-		Vector3 endPos = this.transform.position + (this.transform.right * 10);
+		RaycastHit2D cast = Physics2D.Raycast (this.transform.position, this.transform.right, range, LayerMask.GetMask (Layers.Environment));
+		Vector3 endPos = this.transform.position + (this.transform.right * range);
 		Vector2 end = cast.collider == null ? new Vector2(endPos.x, endPos.y) : cast.point;
 		Debug.DrawLine (this.transform.position, end);
 		

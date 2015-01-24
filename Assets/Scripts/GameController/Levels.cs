@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Levels : MonoBehaviour
 {
+	public string nextLevel;
 	public const string Level1 = "Basics";
 	public const string Level2 = "JumpTutorial";
 	public const string Level3 = "LeftRightTutorial";
@@ -11,4 +12,9 @@ public class Levels : MonoBehaviour
 	//public const string Level6 = "";
 	//public const string Level7 = "";
 	//public const string Level8 = "";
+	
+	public void Start()
+	{
+		nextLevel = Level1;
+	}
 }
