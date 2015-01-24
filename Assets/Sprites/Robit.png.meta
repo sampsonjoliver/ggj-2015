@@ -1,0 +1,267 @@
+fileFormatVersion: 2
+guid: 25687bdf834c23e449d033e77a54d444
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: HEAD
+    21300002: Back_Shoulder
+    21300004: Neck
+    21300006: Front_shoulder
+    21300008: Back Bicep
+    21300010: CHEST
+    21300012: Front_Bicep
+    21300014: Back_Forearm
+    21300016: TUMMYBALL
+    21300018: Front_forearm
+    21300020: Back_Hand
+    21300022: HIPS
+    21300024: Front_Hand
+    21300026: Back_Thigh
+    21300028: Front_Thigh
+    21300030: Back_shin
+    21300032: Front_Shin
+    21300034: Back_Foot
+    21300036: Front_Foot
+    21300038: Robit_19
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: HEAD
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 567
+        width: 141
+        height: 117
+      alignment: 9
+      pivot: {x: .430973023, y: .185080498}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Back_Shoulder
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 472
+        width: 51
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Neck
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 471
+        width: 59
+        height: 87
+      alignment: 9
+      pivot: {x: .488217384, y: .180368364}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Front_shoulder
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 472
+        width: 51
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Back Bicep
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 394
+        width: 48
+        height: 72
+      alignment: 9
+      pivot: {x: .488128811, y: 1.14245093}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CHEST
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 381
+        width: 92
+        height: 85
+      alignment: 9
+      pivot: {x: .490874738, y: .292591035}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Front_Bicep
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 391
+        width: 48
+        height: 80
+      alignment: 9
+      pivot: {x: .500000298, y: 1.10956728}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Back_Forearm
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 296
+        width: 44
+        height: 93
+      alignment: 9
+      pivot: {x: .709877968, y: .852053106}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TUMMYBALL
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 317
+        width: 63
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Front_forearm
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 297
+        width: 45
+        height: 93
+      alignment: 9
+      pivot: {x: .705213785, y: .86108005}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Back_Hand
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 221
+        width: 37
+        height: 56
+      alignment: 9
+      pivot: {x: .68151629, y: .78483361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: HIPS
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 216
+        width: 99
+        height: 97
+      alignment: 9
+      pivot: {x: .466080487, y: .759642601}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Front_Hand
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 233
+        width: 37
+        height: 56
+      alignment: 9
+      pivot: {x: .681516469, y: .784834206}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Back_Thigh
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 104
+        width: 68
+        height: 112
+      alignment: 9
+      pivot: {x: .541032434, y: .848777652}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Front_Thigh
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 103
+        width: 69
+        height: 113
+      alignment: 9
+      pivot: {x: .580875576, y: .853921831}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Back_shin
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 43
+        width: 27
+        height: 52
+      alignment: 9
+      pivot: {x: .531720757, y: .804703355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Front_Shin
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 40
+        width: 27
+        height: 52
+      alignment: 9
+      pivot: {x: .515860081, y: .779997766}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Back_Foot
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 5
+        width: 76
+        height: 36
+      alignment: 9
+      pivot: {x: .849346757, y: .678429365}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Front_Foot
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 2
+        width: 76
+        height: 35
+      alignment: 9
+      pivot: {x: .849346757, y: .769174278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Robit_19
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 614
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

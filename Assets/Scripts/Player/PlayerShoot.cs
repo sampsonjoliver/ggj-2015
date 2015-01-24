@@ -6,12 +6,9 @@ public class PlayerShoot : MonoBehaviour
 {
 	public float cooldownTime = 1f;
 	private float cooldownTimer;
-<<<<<<< HEAD
 	public float speed = 10f;
 	public float range = 50f;
-=======
-	public float scaleFactor;
->>>>>>> 7363821e56eb5d038d07b8e7e1d1c0647fb331cb
+	public float scaleFactor = 1f;
 	private ModifierActions actions;
 	
 	//private List<ShootEffect> effects;
