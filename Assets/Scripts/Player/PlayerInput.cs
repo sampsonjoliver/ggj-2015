@@ -6,9 +6,9 @@ public class PlayerInput : MonoBehaviour {
     private Collider2D playerCollider;
     private bool isFacingRight;
 
-    private const float horizontalVelocity = 10f;
-    private const float gravityVelocity = 9.81f;
-    private const float jumpVelocity = 4f;
+    public float horizontalVelocity = 10f;
+    public float gravityVelocity = 9.81f;
+    public float jumpVelocity = 4f;
 
     private const float groundedMinDist = 0.1f;
 
@@ -35,19 +35,21 @@ public class PlayerInput : MonoBehaviour {
         {
             // Apply velocity left
             rigidbody2D.velocity = new Vector2(-horizontalVelocity, rigidbody2D.velocity.y);
-            isFacingRight = false;
-            
+            SetPlayerFacingDirection(false);
         }
         else if (horizontalMovement > 0f && playerActions.getActionEnabled(ModifierActions.playerRight))
         {
             // Other things
             rigidbody2D.velocity = new Vector2(horizontalVelocity, rigidbody2D.velocity.y);
-            isFacingRight = true;
-            
+            SetPlayerFacingDirection(true);
         }
-        else
-            rigidbody2D.velocity = new Vector2(0f, rigidbody2D.velocity.y);
-    }
+		else
+		{
+			rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+		}
+		
+        // Jump + other stuff
+	}
 
     void HandleVerticalMovement()
     {
@@ -84,7 +86,7 @@ public class PlayerInput : MonoBehaviour {
         {
             this.isFacingRight = isFacingRight;
             Vector3 theScale = transform.localScale;
-            theScale.x *= -1;
+            //theScale.x = isFacingRight ? 1 : -1;
             transform.localScale = theScale;
         }
     }

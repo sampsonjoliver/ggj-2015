@@ -24,11 +24,11 @@ public class ModifierActions : MonoBehaviour {
 
     public bool getActionEnabled(string actionName)
     {
+
         bool isEnabled;
         bool exists = actionList.TryGetValue(actionName, out isEnabled);
         if (!exists)
             return true;
-
         return isEnabled;
     }
 	
