@@ -6,18 +6,22 @@ public class PlayerShoot : MonoBehaviour
 {
 	public float cooldownTime = 1f;
 	private float cooldownTimer;
+<<<<<<< HEAD
 	public float speed = 10f;
 	public float range = 50f;
+=======
+	public float scaleFactor;
+>>>>>>> 7363821e56eb5d038d07b8e7e1d1c0647fb331cb
 	private ModifierActions actions;
 	
-	private List<ShootEffect> effects;
+	//private List<ShootEffect> effects;
 	
 	public GameObject particle;
 	
 	// Use this for initialization
 	void Start () {
 		actions = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<ModifierActions>();
-		effects = new List<ShootEffect>();
+		//effects = new List<ShootEffect>();
 	}
 	
 	// Update is called once per frame
@@ -25,7 +29,7 @@ public class PlayerShoot : MonoBehaviour
 	{
 		if(cooldownTimer > 0f)
 			cooldownTimer -= Time.deltaTime;
-		else if(Input.GetMouseButtonDown (0) && actions.getActionEnabled(ModifierActions.playerShoot))
+		else if(Input.GetMouseButtonDown (0) && actions.getActionEnabled(ModifierActions.playerShoot) && actions.getActionEnabled (ModifierActions.notGrabbing))
 		{
 			Shoot();
 			cooldownTimer = cooldownTime;
@@ -58,8 +62,13 @@ public class PlayerShoot : MonoBehaviour
 		Debug.DrawLine (this.transform.position, end);
 		
 		GameObject spawn = (GameObject)GameObject.Instantiate(particle);
-		spawn.transform.parent = this.transform;
-		spawn.transform.localPosition = Vector3.zero;
+		spawn.transform.position = this.transform.position;
+		Particle laser = spawn.transform.FindChild ("Laser").gameObject.GetComponent<Particle>();
+		laser.transform.position = Vector3.Lerp (this.transform.position, end, 0.5f);
+		laser.transform.rotation = this.transform.rotation;
+		
+		float distance = Vector2.Distance (new Vector2(this.transform.position.x, this.transform.position.y), end);
+		laser.transform.localScale = new Vector3(distance * scaleFactor, laser.transform.localScale.y, laser.transform.localScale.z);
 		/*
 		float duration = Vector2.Distance (new Vector2(this.transform.position.x, this.transform.position.y), end) / speed;
 		ShootEffect newEffect = new ShootEffect(this.transform.position, end, 40, duration, particle);
