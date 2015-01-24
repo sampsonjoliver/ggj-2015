@@ -11,6 +11,7 @@ public class ModifierActions : MonoBehaviour {
     public const string playerShoot = "shoot";
     public const string playerGrab = "grab";
     public const string cameraEnabled = "blackout";
+    public const string grabbing = "grabbing";
 
 	// Use this for initialization
 	void Start () {
