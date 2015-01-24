@@ -55,7 +55,7 @@ public class ShootEffect
 	
 	public bool IsFinished()
 	{
-		return finished;
+		return timer > 0;
 	}
 	
 	private void SpawnParticle()

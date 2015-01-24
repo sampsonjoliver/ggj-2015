@@ -24,12 +24,14 @@ public class PlayerShoot : MonoBehaviour
 	{
 		if(cooldownTimer > 0f)
 			cooldownTimer -= Time.deltaTime;
-		else if(Input.GetMouseButtonDown (0) && actions.getActionEnabled(actions.playerShoot))
+		else if(Input.GetMouseButtonDown (0) && actions.getActionEnabled(ModifierActions.playerShoot))
 		{
 			Shoot();
 			cooldownTimer = cooldownTime;
 		}
 		
+		
+		/*
 		foreach(ShootEffect effect in effects)
 		{
 			effect.Update();
@@ -43,7 +45,7 @@ public class PlayerShoot : MonoBehaviour
 					effects[i].getShootable().Shoot ();
 				effects.RemoveAt (i);
 			}
-		}
+		} */
 	}
 	
 	void Shoot()
@@ -54,13 +56,18 @@ public class PlayerShoot : MonoBehaviour
 		Vector2 end = cast.collider == null ? new Vector2(endPos.x, endPos.y) : cast.point;
 		Debug.DrawLine (this.transform.position, end);
 		
-		float duration = Vector3.Distance (this.transform.position, end) / speed;
+		GameObject spawn = (GameObject)GameObject.Instantiate(particle);
+		spawn.transform.parent = this.transform;
+		spawn.transform.localPosition = Vector3.zero;
+		/*
+		float duration = Vector2.Distance (new Vector2(this.transform.position.x, this.transform.position.y), end) / speed;
 		ShootEffect newEffect = new ShootEffect(this.transform.position, end, 40, duration, particle);
-		effects.Add (newEffect);
+		effects.Add (newEffect); */
 		if(cast.collider != null && cast.collider.gameObject.tag == Tags.shootable)
 		{
 			Shootable shootable = cast.collider.gameObject.GetComponent<Shootable>();
-			newEffect.setShootable(shootable);
+			shootable.Shoot ();
+			//newEffect.setShootable(shootable);
 		}
 	}
 }
