@@ -4,14 +4,15 @@ using System.Collections.Generic;
 
 public class ShootEffect
 {
-	private List<GameObject> particles;
-	public GameObject particlePrefab;
+	private GameObject particlePrefab;
 	
 	private bool finished;
-	public int numParticles;
-	
+	private int numParticles;
 	private float duration;
 	private float timer;
+	private float particleDuration;
+	private float particleSpawnTime;
+	private Shootable shootable;
 	
 	private Vector3 start;
 	private Vector3 end;
@@ -23,16 +24,44 @@ public class ShootEffect
 		this.numParticles = numParticles;
 		this.duration = duration;
 		this.timer = duration;
-		particlePrefab = particle;	
+		this.particlePrefab = particle;
+		this.particleSpawnTime = 0;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public void Update ()
+	{
+		timer -= Time.deltaTime;
+		if(timer > 0)
+		{
+			particleSpawnTime -= Time.deltaTime;
+			if(particleSpawnTime <= 0)
+			{
+				SpawnParticle();
+				particleSpawnTime = duration / numParticles;
+			}
+		}
+	}
 	
+	public void setShootable(Shootable shootable)
+	{
+		this.shootable = shootable;
+	}
+	
+	public Shootable getShootable()
+	{
+		return shootable;
 	}
 	
 	public bool IsFinished()
 	{
-		return finished;
+		return timer > 0;
+	}
+	
+	private void SpawnParticle()
+	{
+		GameObject spawn = (GameObject)GameObject.Instantiate(particlePrefab);
+		float lerp = timer / duration;
+		spawn.transform.position = Vector3.Lerp (end,start, lerp);
 	}
 }
