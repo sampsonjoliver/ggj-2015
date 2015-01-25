@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: b5914dc595d2be14195277587c3e8b7e
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: doors_1
-    21300002: doors_2
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -27,13 +25,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -44,26 +42,6 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites:
-    - name: doors_1
-      rect:
-        serializedVersion: 2
-        x: 173
-        y: 132
-        width: 257
-        height: 626
-      alignment: 9
-      pivot: {x: .155523866, y: .496278375}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: doors_2
-      rect:
-        serializedVersion: 2
-        x: 510
-        y: 137
-        width: 305
-        height: 722
-      alignment: 9
-      pivot: {x: .836094797, y: .451598078}
-      border: {x: 0, y: 0, z: 0, w: 58}
+    sprites: []
   spritePackingTag: 
   userData: 
