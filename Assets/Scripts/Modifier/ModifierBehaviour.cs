@@ -5,14 +5,14 @@ public class ModifierBehaviour : MonoBehaviour {
     public string actionModified;
     public GameObject target;
     private ModifierActions modifierActions;
-    private Collider2D collider;
+    //private Collider2D collider;
     private SpriteRenderer modifierRegionOverlay;
 
 	// Use this for initialization
 	void Start () {
-        collider = GetComponent<Collider2D>();
+        //collider = GetComponent<Collider2D>();
         modifierActions = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<ModifierActions>();
-        modifierRegionOverlay = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+        modifierRegionOverlay = this.GetComponent<SpriteRenderer>();
 
         switch (actionModified)
         {

@@ -3,25 +3,19 @@ using System.Collections;
 
 public class Grabbable : MonoBehaviour
 {
-	private SpriteRenderer sprite;
-	private bool isSelected = false;
+	private Light light;
 	
 	// Use this for initialization
 	void Start()
 	{
-		sprite = GetComponent<SpriteRenderer>();
-		IsSelected (false);
+		light = GetComponentInChildren<Light>();
 	}
 	
-	// Update is called once per frame
-	void Update()
+	public void SetLight(bool enabled)
 	{
-	
-	}
-	
-	public void IsSelected(bool selected)
-	{
-		isSelected = selected;
-		this.sprite.color = (selected ? Color.green : Color.white);
+		if(light != null)
+		{
+			light.enabled = enabled;
+		}
 	}
 }

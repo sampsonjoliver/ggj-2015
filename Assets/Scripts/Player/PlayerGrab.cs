@@ -7,11 +7,15 @@ public class PlayerGrab : MonoBehaviour
 	private Grabbable closestGrab;
 	private Grabbable grabbed;
 	private ModifierActions playerActions;
+	public Color highlightColor;
+	public Color grabColor;
+	private Light light;
 	
 	// Use this for initialization
 	void Start ()
 	{
 		playerActions = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<ModifierActions>();
+		light = GetComponent<Light>();
 	}
 	
 	// Update is called once per frame
@@ -37,13 +41,13 @@ public class PlayerGrab : MonoBehaviour
 			if(closestGrab == null)
 			{
 				closestGrab = grab;
-				grab.IsSelected(true);
+				closestGrab.SetLight (true);
 			}
 			if(Vector3.Distance (this.transform.position, grab.transform.position) < Vector3.Distance (this.transform.position, closestGrab.transform.position))
 			{
-				closestGrab.IsSelected(false);
+				closestGrab.SetLight (false);
 				closestGrab = grab;
-				grab.IsSelected(true);
+				closestGrab.SetLight (true);
 			}
 		}
 	}
@@ -55,7 +59,7 @@ public class PlayerGrab : MonoBehaviour
 			Grabbable grab = other.GetComponent<Grabbable>();
 			if(grab == closestGrab)
 			{
-				closestGrab.IsSelected(false);
+				closestGrab.SetLight (false);
 				closestGrab = null;
 			}
 		}
@@ -66,15 +70,22 @@ public class PlayerGrab : MonoBehaviour
 		grabbed.transform.parent = null;
 		grabbed.collider2D.enabled = true;
 		grabbed.rigidbody2D.isKinematic = false;
+		grabbed.SetLight (true);
+		closestGrab = grabbed;
 		grabbed = null;
+		light.enabled = false;
+		playerActions.setActionEnabled(ModifierActions.notGrabbing, true);
 	}
 	
 	private void Grab()
 	{
 		grabbed = closestGrab;
 		grabbed.transform.parent = this.transform;
-		grabbed.transform.localPosition = Vector3.zero;
+		grabbed.transform.localPosition = new Vector3(0, 0, grabbed.transform.position.z);
 		grabbed.collider2D.enabled = false;
 		grabbed.rigidbody2D.isKinematic = true;
+		grabbed.SetLight (true);
+		light.enabled = true;
+		playerActions.setActionEnabled(ModifierActions.notGrabbing, false);
 	}
 }
