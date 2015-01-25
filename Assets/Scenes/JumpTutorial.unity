@@ -3991,7 +3991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canExit: 1
-  nextLevel: 
+  nextLevel: ShootTutorial
   fadeAmount: 0
   fadeSpeed: 1
   winClip: {fileID: 8300000, guid: d82774462848d45489805378ed062609, type: 3}
@@ -4166,6 +4166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7721810313b8c2346a5445d8ab23fd62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultFader: {fileID: 0}
   defaultFadeSpeed: 1.5
 --- !u!1001 &2071159050
 Prefab:
