@@ -98,7 +98,7 @@ Light:
   serializedVersion: 3
   m_Type: 2
   m_Color: {r: 1, g: .196078435, b: .196078435, a: 1}
-  m_Intensity: 3
+  m_Intensity: 6
   m_Range: 3
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -178,7 +178,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 21
   m_Sprite: {fileID: 21300000, guid: 6716eee2e65f5ea4b8d49e18b57ef64f, type: 3}
   m_Color: {r: 1, g: .196078435, b: .196078435, a: 1}
 --- !u!212 &21218624
@@ -200,7 +200,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 21
   m_Sprite: {fileID: 21300000, guid: c7b432f27497d7446b4386d571ee7f50, type: 3}
   m_Color: {r: 1, g: .196078435, b: .196078435, a: 1}
 --- !u!1001 &100100000
