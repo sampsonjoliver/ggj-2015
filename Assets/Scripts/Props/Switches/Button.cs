@@ -8,7 +8,9 @@ public class Button : Switch {
     private Light light;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
+		base.Start();
         collider = GetComponent<Collider2D>();
         light = GetComponentInChildren<Light>();
 	}

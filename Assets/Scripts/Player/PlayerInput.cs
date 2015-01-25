@@ -12,6 +12,8 @@ public class PlayerInput : MonoBehaviour {
     public float jumpVelocity = 4f;
 
     private const float groundedMinDist = 0.3f;
+    
+    private AudioSource audioSource;
 
     public Transform transformToScale;
 
@@ -19,6 +21,7 @@ public class PlayerInput : MonoBehaviour {
 	void Start () {
         playerActions = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<ModifierActions>();
         playerCollider = gameObject.GetComponent<Collider2D>();
+        audioSource = GetComponent<AudioSource>();
         anim = GetComponentInChildren<Animator>();
         
         hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<AnimatorHashIds>();

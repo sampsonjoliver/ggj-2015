@@ -7,6 +7,7 @@ public class DoorSwitchBehaviour : Switchable {
 
     void Start()
     {
+    	base.Start ();
         anim = GetComponent<Animator>();
         hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<AnimatorHashIds>();
     }

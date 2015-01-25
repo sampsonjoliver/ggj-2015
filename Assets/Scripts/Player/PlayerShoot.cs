@@ -12,6 +12,9 @@ public class PlayerShoot : MonoBehaviour
 	public float scaleFactor = 1f;
 	private ModifierActions actions;
 	
+	public AudioClip shootClip;
+	public AudioSource audioSource;
+	
 	//private List<ShootEffect> effects;
 	
 	public GameObject particle;
@@ -53,6 +56,13 @@ public class PlayerShoot : MonoBehaviour
 	
 	void Shoot()
 	{
+		// Audio
+		if(audioSource != null && !audioSource.isPlaying)
+		{
+			audioSource.clip = this.shootClip;
+			audioSource.Play();
+		}
+		
 		// Raycast
 		RaycastHit2D cast = Physics2D.Raycast (this.transform.position, this.transform.right, range, LayerMask.GetMask (Layers.Environment));
 		Vector3 endPos = this.transform.position + (this.transform.right * range);
