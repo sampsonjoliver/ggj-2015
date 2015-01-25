@@ -68,7 +68,7 @@ public class PlayerGrab : MonoBehaviour
 	private void Drop()
 	{
 		grabbed.transform.parent = null;
-		grabbed.collider2D.enabled = true;
+		grabbed.collider2D.isTrigger = false;
 		grabbed.rigidbody2D.isKinematic = false;
 		grabbed.SetLight (true);
 		closestGrab = grabbed;
@@ -82,7 +82,7 @@ public class PlayerGrab : MonoBehaviour
 		grabbed = closestGrab;
 		grabbed.transform.parent = this.transform;
 		grabbed.transform.localPosition = new Vector3(0, 0, grabbed.transform.position.z);
-		grabbed.collider2D.enabled = false;
+		grabbed.collider2D.isTrigger = true;
 		grabbed.rigidbody2D.isKinematic = true;
 		grabbed.SetLight (true);
 		light.enabled = true;
