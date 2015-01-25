@@ -3,11 +3,15 @@ using System.Collections;
 
 public class PressurePadToggleable : Switch {
     private Collider2D collider;
+    private Animator anim;
+    private AnimatorHashIds hash;
     private int colliderCount = 0;
 
 	// Use this for initialization
 	void Start () {
-        collider = GetComponent<Collider2D>();
+        collider = GetComponent<EdgeCollider2D>();
+        anim = GetComponent<Animator>();
+        hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<AnimatorHashIds>();
 	}
 
     void OnTriggerEnter2D(Collider2D other)
@@ -40,7 +44,7 @@ public class PressurePadToggleable : Switch {
 
             Debug.Log("Object exited: " + other + ", count = " + colliderCount);
 
-            // Switch toggled on
+            // Switch toggled off
             if (colliderCount == 0)
             {
                 Debug.Log("Toggled off");
@@ -58,6 +62,7 @@ public class PressurePadToggleable : Switch {
     protected override void SwitchStateOn()
     {
         // TODO set animation property
+        anim.SetBool(hash.buttonStateBool, true);
 
         // Update attached objects
         foreach (Switchable affectedSwitch in affectedObjects)
@@ -69,7 +74,7 @@ public class PressurePadToggleable : Switch {
     protected override void SwitchStateOff()
     {
         // TODO set animation property
-
+        anim.SetBool(hash.buttonStateBool, false);
         // Update attached objects
         foreach (Switchable affectedSwitch in affectedObjects)
         {
