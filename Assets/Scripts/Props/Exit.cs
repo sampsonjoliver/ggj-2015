@@ -13,17 +13,27 @@ public class Exit : MonoBehaviour
 	private float fadeCount;
 	public float fadeSpeed;
 	
+	private AudioSource audioSource;
+	public AudioClip winClip;
+	
 	void Start ()
 	{
 		fadeCount = 0.0f;
 		myFader = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponentInChildren<Fader>();
         doorBehaviour = GetComponent<DoorSwitchBehaviour>();
+        audioSource = GetComponent<AudioSource>();
 	}
 	
 	public void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.tag == "Player" && canExit)
 		{
+			// Audio
+			if(audioSource != null && !audioSource.isPlaying)
+			{
+				audioSource.clip = winClip;
+				audioSource.Play();
+			}
 			exitLevel = true;
 			other.GetComponent<PlayerInput>().enabled = false;
 			other.rigidbody2D.velocity = new Vector2(0.0f,0.0f);	

@@ -11,14 +11,19 @@ public class PlayerMortality : MonoBehaviour, IFaderListener
 	private Fader fader;
 	
 	private Animator animator;
+	private AudioSource audioSource;
+	public AudioClip dieClip2;
+	public AudioClip dieClip1;
 	public Rigidbody2D[] bodyParts;
 	
 	private bool restartEnabled = false;
+	private bool died = false;
 	
 	void Start()
 	{
 		fader = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<Fader>();
 		animator = GetComponentInChildren<Animator>();
+		audioSource = GetComponent<AudioSource>();
 	}
 	
 	void Update()
@@ -43,20 +48,30 @@ public class PlayerMortality : MonoBehaviour, IFaderListener
 	
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		if(other.collider.tag == Tags.enemy)
+		if(other.collider.tag == Tags.enemy && !died)
 			Die();
 	}
 	
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.tag == Tags.enemy)
+		if(other.tag == Tags.enemy && !died)
 			Die();
 	}
 	
 	private void Die()
 	{
 		// Do explode
+		died = true;
 		animator.enabled = false;
+		if(audioSource != null)
+		{
+			audioSource.Stop ();
+			if(Random.value > 0.5f)
+				audioSource.clip = dieClip1;
+			else
+				audioSource.clip = dieClip2;
+			audioSource.Play ();
+		}
 		foreach(Rigidbody2D part in bodyParts)
 		{
 			part.gameObject.GetComponent<Collider2D>().enabled = true;

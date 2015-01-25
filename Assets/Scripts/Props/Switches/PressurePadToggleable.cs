@@ -9,6 +9,7 @@ public class PressurePadToggleable : Switch {
 
 	// Use this for initialization
 	void Start () {
+		base.Start();
         collider = GetComponent<EdgeCollider2D>();
         anim = transform.parent.GetComponent<Animator>();
         hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<AnimatorHashIds>();

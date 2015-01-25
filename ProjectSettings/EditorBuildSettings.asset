@@ -6,6 +6,4 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Basics.unity
-  - enabled: 1
-    path: Assets/Scenes/JumpTutorial.unity
+    path: Assets/Scenes/MasterScene.unity
