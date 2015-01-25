@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class Fader : MonoBehaviour {
+    public Sprite defaultFader;
     public float defaultFadeSpeed = 0.5f;
 
     private bool isSceneStarting = true;
@@ -21,13 +22,18 @@ public class Fader : MonoBehaviour {
         faderImage = GameObject.FindGameObjectWithTag(Tags.fader).GetComponent<Image>();
         faderImage.color = Color.black;
         currentFadeSpeed = defaultFadeSpeed;
+        if (defaultFader != null)
+            faderImage.sprite = defaultFader;
+        else
+            defaultFader = faderImage.sprite;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (isSceneStarting)
 		{
-			faderImage.enabled = true;
+            faderImage.enabled = true;
+            faderImage.sprite = defaultFader;
             if (FadeToClear(defaultFadeSpeed))
             {
                 isSceneStarting = false;
@@ -36,7 +42,8 @@ public class Fader : MonoBehaviour {
         }
         else if (isSceneEnding)
         {
-			faderImage.enabled = true;
+            faderImage.enabled = true;
+            faderImage.sprite = defaultFader;
             if (FadeToBlack(defaultFadeSpeed))
             {
                 isSceneEnding = false;
@@ -74,8 +81,13 @@ public class Fader : MonoBehaviour {
         }
 	}
 
-    public void RequestFade(bool isFadeEnabled, float fadeSpeed, IFaderListener listener = null)
+    public void RequestFade(bool isFadeEnabled, float fadeSpeed, IFaderListener listener = null, Sprite imageSprite = null)
     {
+        if (imageSprite != null)
+            this.faderImage.sprite = imageSprite;
+        else
+            this.faderImage.sprite = defaultFader;
+
         this.requestedFadeEnabledState = isFadeEnabled;
         currentFadeSpeed = fadeSpeed;
         this.isFadeRequested = true;
