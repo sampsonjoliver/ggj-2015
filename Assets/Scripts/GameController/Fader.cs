@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Fader : MonoBehaviour {
     public Sprite defaultFader;
-    public float defaultFadeSpeed = 0.5f;
+    public float defaultFadeSpeed = 4f;
 
     private bool isSceneStarting = true;
     private bool isSceneEnding = false;

@@ -54,10 +54,16 @@ public class PlayerInput : MonoBehaviour {
             SetPlayerFacingDirection(true);
             anim.SetBool(hash.walkingBool, true);
         }
+        
 		else
 		{
 			rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
             anim.SetBool(hash.walkingBool, false);
+		}
+		
+		if(Input.GetKeyDown (KeyCode.Return))
+		{
+			Application.LoadLevel (Application.loadedLevelName);
 		}
 		
         // Jump + other stuff

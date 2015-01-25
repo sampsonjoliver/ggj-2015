@@ -32,7 +32,7 @@ public class ModifierBehaviour : MonoBehaviour {
                 modifierRegionOverlay.color = new Color(0.25f,0.25f,0.75f,0.5f);
                 break;
             case ModifierActions.cameraEnabled:
-                modifierRegionOverlay.color = new Color(0.0f, 0.0f, 0.0f, 0.5f);
+                modifierRegionOverlay.color = new Color(0.0f, 0.0f, 0.0f, 0.7f);
                 break;
             default:
                 modifierRegionOverlay.color = Color.clear;
