@@ -7,7 +7,13 @@ AnimatorController:
   m_PrefabInternal: {fileID: 0}
   m_Name: buttonbase
   serializedVersion: 2
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: IsPressed
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
@@ -20,6 +26,26 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1101 &110104116
+Transition:
+  serializedVersion: 2
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110274194}
+  m_DstState: {fileID: 110250752}
+  m_TransitionDuration: .789473712
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsPressed
+    m_EventTreshold: 0
+    m_ExitTime: .210526288
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+  m_CanTransitionToSelf: 0
 --- !u!1101 &110127998
 Transition:
   serializedVersion: 2
@@ -32,8 +58,8 @@ Transition:
   m_TransitionDuration: .25
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsPressed
     m_EventTreshold: 0
     m_ExitTime: .75
   m_Atomic: 1
@@ -88,6 +114,10 @@ StateMachine:
       first: {fileID: 110250752}
       second:
       - {fileID: 110127998}
+    data:
+      first: {fileID: 110274194}
+      second:
+      - {fileID: 110104116}
   m_MotionSetCount: 1
-  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_AnyStatePosition: {x: 48, y: -36, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
