@@ -1140,7 +1140,7 @@ GameObject:
   - 4: {fileID: 396212719}
   - 212: {fileID: 396212721}
   - 95: {fileID: 396212720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: doorframe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1387,7 +1387,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 749577376}
   - 108: {fileID: 749577377}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1450,7 +1450,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 770284838}
   - 212: {fileID: 770284839}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2882,7 +2882,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 427912, guid: efa360631819bdf48a1042d9fb99b044, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 427912, guid: efa360631819bdf48a1042d9fb99b044, type: 2}
       propertyPath: m_LocalScale.y
@@ -2926,7 +2926,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1729586076}
   - 212: {fileID: 1729586077}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: doors_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3158,7 +3158,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1822514524}
   - 212: {fileID: 1822514525}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: doors_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3795,7 +3795,7 @@ GameObject:
   - 114: {fileID: 2038982867}
   - 114: {fileID: 2038982866}
   - 61: {fileID: 2038982865}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3819,7 +3819,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2038982864}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa106c9de74a1884bb9351e8294bd88e, type: 3}
   m_Name: 
