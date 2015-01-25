@@ -42,7 +42,10 @@ public class Exit : MonoBehaviour
 	
 	public void Update()
 	{
-        canExit = doorBehaviour.GetSwitchState();
+		if(doorBehaviour.enabled == true)
+		{
+        	canExit = doorBehaviour.GetSwitchState();
+        }
 		if(exitLevel && canExit)
 		{
 			exitLevel = false;

@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 15303403}
   - 108: {fileID: 15303404}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -853,7 +853,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 403868739}
   - 212: {fileID: 403868738}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2240,7 +2240,7 @@ Transform:
   m_Children:
   - {fileID: 2147430927}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 14
 --- !u!1 &1139571921
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,7 +2756,7 @@ GameObject:
   - 114: {fileID: 1261146931}
   - 114: {fileID: 1261146930}
   - 61: {fileID: 1261146929}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2797,7 +2797,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1261146927}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa106c9de74a1884bb9351e8294bd88e, type: 3}
   m_Name: 
@@ -2917,7 +2917,7 @@ Transform:
   m_LocalScale: {x: .400000006, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!1 &1353673423
 GameObject:
   m_ObjectHideFlags: 0
@@ -3252,7 +3252,7 @@ Transform:
   m_LocalScale: {x: .400000006, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!1 &1675775711
 GameObject:
   m_ObjectHideFlags: 0
@@ -3262,7 +3262,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1675775712}
   - 212: {fileID: 1675775713}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: doors_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4017,7 +4017,7 @@ GameObject:
   - 4: {fileID: 2092540745}
   - 212: {fileID: 2092540747}
   - 95: {fileID: 2092540746}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: doorframe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4082,7 +4082,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2143982563}
   - 212: {fileID: 2143982564}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: doors_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
