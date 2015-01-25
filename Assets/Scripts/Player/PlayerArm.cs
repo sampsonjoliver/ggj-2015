@@ -19,6 +19,8 @@ public class PlayerArm : MonoBehaviour
         Vector3 dir = mouse - arm;
 		float angle = Mathf.Atan2 (dir.y, dir.x) * Mathf.Rad2Deg;
 		this.transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-        this.transform.position = followTransform.position;
+		Vector3 pos = followTransform.position;
+		pos.z -= 0.5f;
+        this.transform.position = pos;
 	}
 }
