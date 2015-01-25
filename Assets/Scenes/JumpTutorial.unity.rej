@@ -1,0 +1,13 @@
+diff a/Assets/Scenes/JumpTutorial.unity b/Assets/Scenes/JumpTutorial.unity	(rejected hunks)
+@@ -340,9 +340,9 @@
+ --- !u!212 &136448050
+ SpriteRenderer:
+   m_ObjectHideFlags: 0
+-  m_PrefabParentObject: {fileID: 21252354, guid: 691f8f6180c218b41828b4b3cdb926f0,
++  m_PrefabParentObject: {fileID: 21264238, guid: 9c309b022fb34eb4c839c0f18065f299,
+     type: 2}
+-  m_PrefabInternal: {fileID: 290509332}
++  m_PrefabInternal: {fileID: 1195396481}
+   m_GameObject: {fileID: 136448048}
+   m_Enabled: 1
+   m_CastShadows: 0
