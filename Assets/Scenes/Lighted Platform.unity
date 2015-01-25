@@ -477,6 +477,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f887e1fdb5bb640ac37b13ae88d9dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  grabColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!58 &384403339
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -544,6 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58325431babacd4c8d8facbcff83703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followTransform: {fileID: 0}
 --- !u!1001 &546609368
 Prefab:
   m_ObjectHideFlags: 0
@@ -598,9 +601,9 @@ GameObject:
   - 4: {fileID: 577188328}
   - 212: {fileID: 577188327}
   - 61: {fileID: 577188326}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crate
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -771,6 +774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalVelocity: 10
   jumpVelocity: 12
+  transformToScale: {fileID: 0}
 --- !u!212 &645294163
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -804,9 +808,9 @@ GameObject:
   - 4: {fileID: 762302384}
   - 212: {fileID: 762302383}
   - 61: {fileID: 762302382}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crate
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -931,9 +935,9 @@ GameObject:
   - 4: {fileID: 788758275}
   - 212: {fileID: 788758274}
   - 61: {fileID: 788758273}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crate
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1712,6 +1716,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownTime: 1
   speed: 10
+  range: 50
+  scaleFactor: 1
+  shootClip: {fileID: 0}
+  audioSource: {fileID: 0}
   particle: {fileID: 0}
 --- !u!1 &1932145731
 GameObject:
@@ -1968,7 +1976,7 @@ SpriteRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: f0cb0b6999df5424c8cfbe4442d1c7c9, type: 2}
+  - {fileID: 2100000, guid: 88e935e5d2f83e54d89550ce7f28a209, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
