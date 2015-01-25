@@ -22,7 +22,7 @@ public class Exit : MonoBehaviour
 	
 	public void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.tag == "Player")
+		if(other.tag == "Player" && canExit)
 		{
 			exitLevel = true;
 			other.GetComponent<PlayerInput>().enabled = false;
@@ -32,10 +32,7 @@ public class Exit : MonoBehaviour
 	
 	public void Update()
 	{
-        if (doorBehaviour.GetSwitchState())
-        {
-            canExit = true;
-        }
+        canExit = doorBehaviour.GetSwitchState();
 		if(exitLevel && canExit)
 		{
 			exitLevel = false;
