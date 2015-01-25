@@ -13,6 +13,8 @@ public class Fader : MonoBehaviour {
     private bool requestedFadeEnabledState;
 
     private Image faderImage;
+    
+    private IFaderListener listener;
 
 	// Use this for initialization
 	void Awake () {
@@ -24,7 +26,8 @@ public class Fader : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (isSceneStarting)
-        {
+		{
+			faderImage.enabled = true;
             if (FadeToClear(defaultFadeSpeed))
             {
                 isSceneStarting = false;
@@ -33,10 +36,13 @@ public class Fader : MonoBehaviour {
         }
         else if (isSceneEnding)
         {
+			faderImage.enabled = true;
             if (FadeToBlack(defaultFadeSpeed))
             {
                 isSceneEnding = false;
                 //Debug.Log("Scene Ended");
+                if(listener != null)
+                	listener.OnFadeEnd();
                 // TODO notify things of us having finished the scene now.
                 // Most like this'll be when the player is dead and we need to load
                 // the level again. Or when finishing a level and loading a new one.
@@ -68,21 +74,24 @@ public class Fader : MonoBehaviour {
         }
 	}
 
-    public void RequestFade(bool isFadeEnabled, float fadeSpeed)
+    public void RequestFade(bool isFadeEnabled, float fadeSpeed, IFaderListener listener = null)
     {
         this.requestedFadeEnabledState = isFadeEnabled;
         currentFadeSpeed = fadeSpeed;
         this.isFadeRequested = true;
+        this.listener = listener;
     }
 
-    void StartScene()
+    void StartScene(IFaderListener listener = null)
     {
         isSceneStarting = true;
+		this.listener = listener;
     }
 
-    public void EndScene()
+    public void EndScene(IFaderListener listener = null)
     {
-        isSceneStarting = false;
+        isSceneEnding = true;
+		this.listener = listener;
     }
 
     bool FadeToClear(float fadeSpeed)
