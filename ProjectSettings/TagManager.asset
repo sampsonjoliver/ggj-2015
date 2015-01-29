@@ -43,7 +43,15 @@ TagManager:
   User Layer 30: 
   User Layer 31: 
   m_SortingLayers:
+  - name: Backdrop
+    userID: 3
+    uniqueID: 1240246291
+    locked: 0
   - name: Default
     userID: 0
     uniqueID: 0
+    locked: 0
+  - name: GUI
+    userID: 2
+    uniqueID: 4282483963
     locked: 0
