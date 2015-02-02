@@ -11,9 +11,10 @@ public class PlayerShoot : MonoBehaviour
 	public float range = 50f;
 	public float scaleFactor = 1f;
 	private ModifierActions actions;
-	
-	public AudioClip shootClip;
-	public AudioSource audioSource;
+
+    public AudioClip shootClip;
+    public AudioClip actionFailClip;
+    public AudioSource audioSource;
 	
 	//private List<ShootEffect> effects;
 	
@@ -30,11 +31,18 @@ public class PlayerShoot : MonoBehaviour
 	{
 		if(cooldownTimer > 0f)
 			cooldownTimer -= Time.deltaTime;
-		else if(Input.GetMouseButtonDown (0) && actions.getActionEnabled(ModifierActions.playerShoot) && actions.getActionEnabled (ModifierActions.notGrabbing))
-		{
-			Shoot();
-			cooldownTimer = cooldownTime;
-		}
+        else if (Input.GetMouseButtonDown(0))
+        {
+            if (actions.getActionEnabled(ModifierActions.playerShoot) && actions.getActionEnabled(ModifierActions.notGrabbing))
+            {
+                Shoot();
+                cooldownTimer = cooldownTime;
+            }
+            else
+            {
+                PlayClip(actionFailClip, true);
+            }
+        }
 		
 		
 		/*
@@ -57,11 +65,7 @@ public class PlayerShoot : MonoBehaviour
 	void Shoot()
 	{
 		// Audio
-		if(audioSource != null && !audioSource.isPlaying)
-		{
-			audioSource.clip = this.shootClip;
-			audioSource.Play();
-		}
+        PlayClip(this.shootClip);
 		
 		// Raycast
 		RaycastHit2D cast = Physics2D.Raycast (this.transform.position, this.transform.right, range, LayerMask.GetMask (Layers.Environment));
@@ -90,4 +94,21 @@ public class PlayerShoot : MonoBehaviour
 			//newEffect.setShootable(shootable);
 		}
 	}
+
+    private void PlayClip(AudioClip clip, bool overridePlaying = false)
+    {
+        if (audioSource != null)
+        {
+            if (audioSource.isPlaying && overridePlaying)
+            {
+                audioSource.Stop();
+            }
+
+            if (!audioSource.isPlaying && clip != null)
+            {
+                audioSource.clip = clip;
+                audioSource.Play();
+            }
+        }
+    }
 }

@@ -14,6 +14,9 @@ public class PlayerInput : MonoBehaviour {
     private const float groundedMinDist = 0.3f;
     
     private AudioSource audioSource;
+    public AudioClip actionFailClip;
+    public AudioClip[] footstepClips;
+    public AudioClip jumpClip;
 
     public Transform transformToScale;
 
@@ -32,54 +35,78 @@ public class PlayerInput : MonoBehaviour {
         //ApplyGravity();
         HandleHorizontalMovement();
         HandleVerticalMovement();
-
+        HandleMiscControls();
         // Jump + other stuff
 	}
+
+    void HandleMiscControls()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Application.LoadLevel(Application.loadedLevelName);
+        }
+    }
 
     void HandleHorizontalMovement()
     {
         float horizontalMovement = Input.GetAxis("Horizontal");
         
-        if (horizontalMovement < 0f && playerActions.getActionEnabled(ModifierActions.playerLeft))
+        if (horizontalMovement < 0f)
         {
-            // Apply velocity left
-            rigidbody2D.velocity = new Vector2(-horizontalVelocity, rigidbody2D.velocity.y);
-            SetPlayerFacingDirection(false);
-            anim.SetBool(hash.walkingBool, true);
+            if (playerActions.getActionEnabled(ModifierActions.playerLeft))
+            {
+                // Apply velocity left
+                rigidbody2D.velocity = new Vector2(-horizontalVelocity, rigidbody2D.velocity.y);
+                SetPlayerFacingDirection(false);
+                anim.SetBool(hash.walkingBool, true);
+                // TODO footsteps
+            }
+            else
+            {
+                PlayClip(this.actionFailClip, true);
+            }
         }
-        else if (horizontalMovement > 0f && playerActions.getActionEnabled(ModifierActions.playerRight))
+        else if (horizontalMovement > 0f)
         {
-            // Other things
-            rigidbody2D.velocity = new Vector2(horizontalVelocity, rigidbody2D.velocity.y);
-            SetPlayerFacingDirection(true);
-            anim.SetBool(hash.walkingBool, true);
+            if (playerActions.getActionEnabled(ModifierActions.playerRight))
+            {
+                // Other things
+                rigidbody2D.velocity = new Vector2(horizontalVelocity, rigidbody2D.velocity.y);
+                SetPlayerFacingDirection(true);
+                anim.SetBool(hash.walkingBool, true);
+            }
+            else
+            {
+                PlayClip(this.actionFailClip, true);
+            }
         }
-        
-		else
-		{
-			rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+        else
+        {
+            rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
             anim.SetBool(hash.walkingBool, false);
-		}
-		
-		if(Input.GetKeyDown (KeyCode.Return))
-		{
-			Application.LoadLevel (Application.loadedLevelName);
-		}
-		
-        // Jump + other stuff
+        }
 	}
 
     void HandleVerticalMovement()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && playerActions.getActionEnabled(ModifierActions.playerJump))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (CheckGrounded())
+            if (playerActions.getActionEnabled(ModifierActions.playerJump))
             {
-                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpVelocity);
-                anim.SetBool(hash.jumpingBool, true);
+                if (CheckGrounded())
+                {
+                    rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpVelocity);
+                    anim.SetBool(hash.jumpingBool, true);
+                    PlayClip(this.jumpClip);
+                }
+            }
+            else
+            {
+                PlayClip(this.actionFailClip, true);
             }
         }
         
+        // Animation
         if (rigidbody2D.velocity.y < 0)
         {
             anim.SetBool(hash.jumpingBool, false);
@@ -125,5 +152,22 @@ public class PlayerInput : MonoBehaviour {
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    private void PlayClip(AudioClip clip, bool overridePlaying = false)
+    {
+        if (audioSource != null)
+        {
+            if (audioSource.isPlaying && overridePlaying)
+            {
+                audioSource.Stop();
+            }
+
+            if (!audioSource.isPlaying && clip != null)
+            {
+                audioSource.clip = clip;
+                audioSource.Play();
+            }
+        }
     }
 }

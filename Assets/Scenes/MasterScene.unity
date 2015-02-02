@@ -3005,6 +3005,7 @@ MonoBehaviour:
   range: 100
   scaleFactor: 6.19999981
   shootClip: {fileID: 8300000, guid: 28159a97638064f41be8be95c126c36d, type: 3}
+  actionFailClip: {fileID: 8300000, guid: 98a2eb420e742dc41bff7e874122566f, type: 3}
   audioSource: {fileID: 1316829684}
   particle: {fileID: 118624, guid: 2a1cddf1f8820b74eaaa075ee905883f, type: 2}
 --- !u!1 &1146687563
@@ -3104,6 +3105,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightColor: {r: 0, g: 0, b: 0, a: 0}
   grabColor: {r: 0, g: 0, b: 0, a: 0}
+  audioSource: {fileID: 1316829684}
+  grabClip: {fileID: 8300000, guid: 6f7d04edf69801043897b817a38f76d4, type: 3}
+  releaseClip: {fileID: 8300000, guid: 6f7d04edf69801043897b817a38f76d4, type: 3}
+  actionFailClip: {fileID: 8300000, guid: 98a2eb420e742dc41bff7e874122566f, type: 3}
 --- !u!58 &1149736989
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3723,6 +3728,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalVelocity: 5
   jumpVelocity: 11
+  actionFailClip: {fileID: 8300000, guid: 98a2eb420e742dc41bff7e874122566f, type: 3}
+  footstepClips: []
+  jumpClip: {fileID: 8300000, guid: 2b4a3c77f576c5b4fbd88a8b9bafee1e, type: 3}
   transformToScale: {fileID: 1948567111}
 --- !u!50 &1316829678
 Rigidbody2D:
