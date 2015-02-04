@@ -165,9 +165,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: .100000001}
   m_LocalScale: {x: 1.20000005, y: 1.29999995, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2012638372}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!114 &17684598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,7 +469,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 21225130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_Sprite
@@ -487,6 +488,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 88e935e5d2f83e54d89550ce7f28a209, type: 2}
+    - target: {fileID: 125130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
+      propertyPath: m_Name
+      value: Wall Right
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
   m_RootGameObject: {fileID: 454976093}
@@ -554,7 +559,7 @@ GameObject:
   - 212: {fileID: 99288927}
   - 61: {fileID: 99288926}
   m_Layer: 8
-  m_Name: Ground
+  m_Name: Floor Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,7 +611,7 @@ Transform:
   m_LocalScale: {x: 1.10000002, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 9
 --- !u!1001 &99951447
 Prefab:
   m_ObjectHideFlags: 0
@@ -644,7 +649,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 427912, guid: efa360631819bdf48a1042d9fb99b044, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 427912, guid: efa360631819bdf48a1042d9fb99b044, type: 2}
       propertyPath: m_LocalScale.y
@@ -660,7 +665,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 427912, guid: efa360631819bdf48a1042d9fb99b044, type: 2}
       propertyPath: m_LocalScale.x
-      value: 7.6739912
+      value: 8.24953938
       objectReference: {fileID: 0}
     - target: {fileID: 6127912, guid: efa360631819bdf48a1042d9fb99b044, type: 2}
       propertyPath: m_Size.x
@@ -838,7 +843,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 21225130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_Sprite
@@ -861,6 +866,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 88e935e5d2f83e54d89550ce7f28a209, type: 2}
+    - target: {fileID: 125130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
+      propertyPath: m_Name
+      value: Floor Right
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
   m_RootGameObject: {fileID: 662908386}
@@ -941,7 +950,7 @@ GameObject:
   - 212: {fileID: 454976095}
   - 61: {fileID: 454976094}
   m_Layer: 8
-  m_Name: Ground
+  m_Name: Wall Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -993,7 +1002,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!1 &467854403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,7 +1239,7 @@ Transform:
   - {fileID: 1322140323}
   - {fileID: 1762969517}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 4
 --- !u!82 &573348005
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1493,7 +1502,7 @@ GameObject:
   - 212: {fileID: 662908388}
   - 61: {fileID: 662908387}
   m_Layer: 8
-  m_Name: Ground
+  m_Name: Floor Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1545,7 +1554,7 @@ Transform:
   m_LocalScale: {x: 1.10000002, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 10
 --- !u!1 &727287594
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1630,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
 --- !u!1 &759214145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,7 +1642,7 @@ GameObject:
   - 212: {fileID: 759214147}
   - 61: {fileID: 759214146}
   m_Layer: 8
-  m_Name: Ground
+  m_Name: Wall Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1685,7 +1694,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 11
 --- !u!1001 &760426734
 Prefab:
   m_ObjectHideFlags: 0
@@ -1723,7 +1732,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 425130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_LocalScale.x
@@ -1792,7 +1801,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 425130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_LocalScale.x
@@ -1815,6 +1824,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 88e935e5d2f83e54d89550ce7f28a209, type: 2}
+    - target: {fileID: 125130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
+      propertyPath: m_Name
+      value: Platform Right
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
   m_RootGameObject: {fileID: 1732650314}
@@ -1908,7 +1921,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 425130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_LocalScale.x
@@ -1931,6 +1944,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 88e935e5d2f83e54d89550ce7f28a209, type: 2}
+    - target: {fileID: 125130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
+      propertyPath: m_Name
+      value: Platform Left
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
   m_RootGameObject: {fileID: 1353673423}
@@ -2252,7 +2269,7 @@ Transform:
   m_Children:
   - {fileID: 1164196129}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
 --- !u!1 &1322140322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2366,7 +2383,7 @@ Transform:
   m_LocalScale: {x: .400000006, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
 --- !u!1 &1353673423
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,7 +2395,7 @@ GameObject:
   - 212: {fileID: 1353673425}
   - 61: {fileID: 1353673424}
   m_Layer: 8
-  m_Name: Ground
+  m_Name: Platform Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2430,7 +2447,7 @@ Transform:
   m_LocalScale: {x: .360000014, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 13
 --- !u!1 &1354522186
 GameObject:
   m_ObjectHideFlags: 0
@@ -2445,7 +2462,7 @@ GameObject:
   - 114: {fileID: 1354522188}
   - 82: {fileID: 1354522187}
   m_Layer: 8
-  m_Name: target
+  m_Name: Target
   m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2582,7 +2599,7 @@ Transform:
   m_Children:
   - {fileID: 609326989}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 2
 --- !u!1 &1393217256
 GameObject:
   m_ObjectHideFlags: 0
@@ -2728,7 +2745,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 21225130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_Sprite
@@ -2747,6 +2764,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 88e935e5d2f83e54d89550ce7f28a209, type: 2}
+    - target: {fileID: 125130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
+      propertyPath: m_Name
+      value: Wall Left
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
   m_RootGameObject: {fileID: 759214145}
@@ -2916,7 +2937,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 425130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_LocalScale.x
@@ -2939,6 +2960,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 88e935e5d2f83e54d89550ce7f28a209, type: 2}
+    - target: {fileID: 125130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
+      propertyPath: m_Name
+      value: Pit Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
   m_RootGameObject: {fileID: 2080025814}
@@ -3054,7 +3079,7 @@ Transform:
   m_LocalScale: {x: .400000006, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!1 &1726839861
 GameObject:
   m_ObjectHideFlags: 0
@@ -3146,7 +3171,7 @@ GameObject:
   - 212: {fileID: 1732650316}
   - 61: {fileID: 1732650315}
   m_Layer: 8
-  m_Name: Ground
+  m_Name: Platform Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3198,7 +3223,7 @@ Transform:
   m_LocalScale: {x: .360000014, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
 --- !u!1 &1733364294
 GameObject:
   m_ObjectHideFlags: 0
@@ -3316,7 +3341,7 @@ Transform:
   - {fileID: 55650962}
   - {fileID: 1408099427}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 1
 --- !u!82 &1739234752
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3752,7 +3777,7 @@ Transform:
   m_Children:
   - {fileID: 1393217258}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!114 &1806939725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3908,7 +3933,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 489894, guid: ced62ab119d159e468ad7cfc802c0574, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ced62ab119d159e468ad7cfc802c0574, type: 2}
@@ -4003,7 +4028,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 425130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 21225130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
       propertyPath: m_Sprite
@@ -4026,6 +4051,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 88e935e5d2f83e54d89550ce7f28a209, type: 2}
+    - target: {fileID: 125130, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
+      propertyPath: m_Name
+      value: Floor Left
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38f96a82306a1de48b6fb9e0539b9940, type: 2}
   m_RootGameObject: {fileID: 99288925}
@@ -4143,11 +4172,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2012638369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.29999995, z: .200000003}
-  m_LocalScale: {x: 1.20000005, y: 1.29999995, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: .100000001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 17684597}
+  m_RootOrder: 0
 --- !u!1 &2015396098
 GameObject:
   m_ObjectHideFlags: 0
@@ -4222,10 +4251,10 @@ Transform:
   m_GameObject: {fileID: 2015396098}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.0199999996, y: -3.63000011, z: .100000001}
-  m_LocalScale: {x: 7.6739912, y: 3.91418266, z: 1}
+  m_LocalScale: {x: 8.24953938, y: 3.91418266, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 5
 --- !u!1 &2022862020
 GameObject:
   m_ObjectHideFlags: 0
@@ -4303,7 +4332,7 @@ Transform:
   m_Children:
   - {fileID: 1502787857}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!1 &2062571017
 GameObject:
   m_ObjectHideFlags: 0
@@ -4381,7 +4410,7 @@ GameObject:
   - 212: {fileID: 2080025816}
   - 61: {fileID: 2080025815}
   m_Layer: 8
-  m_Name: Ground
+  m_Name: Pit Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4433,7 +4462,7 @@ Transform:
   m_LocalScale: {x: 1.42999995, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 15
 --- !u!1 &2083614609
 GameObject:
   m_ObjectHideFlags: 0
