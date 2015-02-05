@@ -3956,9 +3956,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalVelocity: 5
   jumpVelocity: 11
-  actionFailClip: {fileID: 8300000, guid: 98a2eb420e742dc41bff7e874122566f, type: 3}
-  footstepClips: []
-  jumpClip: {fileID: 8300000, guid: 2b4a3c77f576c5b4fbd88a8b9bafee1e, type: 3}
   transformToScale: {fileID: 1948567111}
 --- !u!50 &1316829678
 Rigidbody2D:
@@ -4042,7 +4039,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1316829676}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9e373313322e9e04eb40e3f5a3743255, type: 2}
   m_IsTrigger: 0
   m_Size: {x: 6.5, y: 17.5}
   m_Center: {x: 0, y: 2.5}

@@ -839,6 +839,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightColor: {r: 0, g: 0, b: 0, a: 0}
   grabColor: {r: 0, g: 0, b: 0, a: 0}
+  audioSource: {fileID: 0}
+  grabClip: {fileID: 0}
+  releaseClip: {fileID: 0}
+  actionFailClip: {fileID: 0}
 --- !u!58 &397413003
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1687,6 +1691,7 @@ MonoBehaviour:
   range: 100
   scaleFactor: 6.19999981
   shootClip: {fileID: 8300000, guid: 28159a97638064f41be8be95c126c36d, type: 3}
+  actionFailClip: {fileID: 0}
   audioSource: {fileID: 851436109}
   particle: {fileID: 118624, guid: 2a1cddf1f8820b74eaaa075ee905883f, type: 2}
 --- !u!1 &851436107
@@ -1857,7 +1862,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 851436107}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9e373313322e9e04eb40e3f5a3743255, type: 2}
   m_IsTrigger: 0
   m_Size: {x: 6.5, y: 17.5}
   m_Center: {x: 0, y: 2.5}
