@@ -25,6 +25,13 @@ public class PlayerGrab : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
+		if(!playerActions.getActionEnabled(ModifierActions.playerGrab))
+		{
+			if(grabbed != null)
+			{
+				Drop ();
+			}
+		}
         if (Input.GetMouseButtonDown(1))
         {
             if (playerActions.getActionEnabled(ModifierActions.playerGrab))
