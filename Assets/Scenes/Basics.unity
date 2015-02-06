@@ -460,7 +460,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 218554365}
   m_GameObject: {fileID: 132456868}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cb2a389392b8e66428c39dcd537b4338, type: 2}
   m_IsTrigger: 0
   m_Size: {x: 9.93999958, y: 10}
   m_Center: {x: 0, y: 0}
@@ -816,6 +816,10 @@ Prefab:
       propertyPath: m_Name
       value: PitOneBox
       objectReference: {fileID: 0}
+    - target: {fileID: 6189894, guid: ced62ab119d159e468ad7cfc802c0574, type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: cb2a389392b8e66428c39dcd537b4338, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ced62ab119d159e468ad7cfc802c0574, type: 2}
   m_RootGameObject: {fileID: 132456868}
@@ -3496,6 +3500,10 @@ Prefab:
       propertyPath: m_Name
       value: PitTwoBox
       objectReference: {fileID: 0}
+    - target: {fileID: 6189894, guid: ced62ab119d159e468ad7cfc802c0574, type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: cb2a389392b8e66428c39dcd537b4338, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ced62ab119d159e468ad7cfc802c0574, type: 2}
   m_RootGameObject: {fileID: 1910333155}
@@ -4838,7 +4846,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 1302766599}
   m_GameObject: {fileID: 1910333155}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cb2a389392b8e66428c39dcd537b4338, type: 2}
   m_IsTrigger: 0
   m_Size: {x: 9.93999958, y: 10}
   m_Center: {x: 0, y: 0}

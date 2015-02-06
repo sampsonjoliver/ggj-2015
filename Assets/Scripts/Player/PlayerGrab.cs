@@ -83,6 +83,7 @@ public class PlayerGrab : MonoBehaviour
 		grabbed.collider2D.isTrigger = false;
 		grabbed.rigidbody2D.isKinematic = false;
 		grabbed.SetLight (true);
+		grabbed.gameObject.layer = 8;
 		closestGrab = grabbed;
 		grabbed = null;
 		light.enabled = false;
@@ -98,6 +99,7 @@ public class PlayerGrab : MonoBehaviour
         grabbed.collider2D.isTrigger = true;
         grabbed.rigidbody2D.isKinematic = true;
         grabbed.SetLight(true);
+        grabbed.gameObject.layer = 0;
         light.enabled = true;
         playerActions.setActionEnabled(ModifierActions.notGrabbing, false);
         PlayClip(grabClip, true);
