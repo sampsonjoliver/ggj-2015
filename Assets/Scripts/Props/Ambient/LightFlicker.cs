@@ -7,11 +7,12 @@ public class LightFlicker : MonoBehaviour {
     public bool smoothFlicker;
     public float maxIntensity, minIntensity;
     public bool randomise;
-    public float randomDamping = 0.05f;
+    public float randomVariance = 0.5f;
 
     private bool isLightOn;
     private bool isLightTurningOff;
     private float timer;
+    private float realFlickerTime;
 
     void Start()
     {
@@ -20,58 +21,64 @@ public class LightFlicker : MonoBehaviour {
             isLightOn = true;
         }
         isLightTurningOff = isLightOn;
+        realFlickerTime = flickerTime;
         timer = 0f;
     }
 	
 	// Update is called once per frame
-	void Update () {
-        float mod = 0f;
+    void Update()
+    {
         timer += Time.deltaTime;
+        // If smooth, then LERP across interval
+        // If not smooth, then on-off after interval
+        // If random smooth, then periodically flip direction
+        // If random, periodically flip direction
+        if (timer >= realFlickerTime)
+        {
+            if (randomise)
+            {
+                float randTime = Random.value;
+                realFlickerTime = flickerTime + (((randTime - 1) * 2) * randomVariance);
+                Debug.Log("Real flicker rand: " + realFlickerTime);
+                isLightTurningOff = Random.value >= 0.5f;
+            }
+            else
+            {
+                realFlickerTime = flickerTime;
+            }
+        }
 
         if (smoothFlicker)
         {
-            float t = timer / flickerTime;
-            if (isLightTurningOff && activeLight.intensity > minIntensity)
+            float tPerc = timer / realFlickerTime;
+            if (isLightTurningOff)
             {
-                activeLight.intensity = Mathf.Lerp(maxIntensity, minIntensity, t) + mod;
-                if (activeLight.intensity <= minIntensity + 0.05f)
+                activeLight.intensity = Mathf.Lerp(maxIntensity, minIntensity, tPerc);
+                if (timer >= realFlickerTime)
                 {
-                    isLightOn = false;
-                    if (smoothFlicker)
-                    {
-                        Debug.Log("mod " + mod);
-                        Debug.Log("intensity " + activeLight.intensity);
-                        Debug.Log("timer reset " + timer);
-                        timer = 0f;
-                    }
+                    if (!randomise)
+                        isLightTurningOff = !isLightTurningOff;
+                    timer = 0f;
                 }
             }
-            else if (!isLightTurningOff && activeLight.intensity < maxIntensity)
+            else
             {
-                activeLight.intensity = Mathf.Lerp(minIntensity, maxIntensity, t) + mod;
-                if (activeLight.intensity >= maxIntensity - 0.05f)
+                activeLight.intensity = Mathf.Lerp(minIntensity, maxIntensity, tPerc);
+                if (timer >= realFlickerTime)
                 {
-                    isLightOn = true;
-                    if (smoothFlicker)
-                    {
-                        Debug.Log("mod " + mod);
-                        Debug.Log("intensity " + activeLight.intensity);
-                        Debug.Log("timer reset " + timer);
-                        timer = 0f;
-                    }
+                    if (!randomise)
+                        isLightTurningOff = !isLightTurningOff;
+                    timer = 0f;
                 }
             }
         }
-        else
+        else if (timer >= realFlickerTime)
         {
-            if (timer >= flickerTime)
-            {
-                activeLight.intensity = isLightTurningOff ? minIntensity : maxIntensity;
-                isLightOn = !isLightTurningOff;
-                timer = 0f;
-            }
+            activeLight.intensity = isLightTurningOff ? minIntensity : maxIntensity;
+            isLightTurningOff = !isLightTurningOff;
+            timer = 0f;
         }
-
+        /*
         if (randomise)
         {
             if (smoothFlicker)
@@ -88,6 +95,6 @@ public class LightFlicker : MonoBehaviour {
         else
         {
             isLightTurningOff = isLightOn;
-        }
+        }*/
 	}
 }
