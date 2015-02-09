@@ -17,7 +17,7 @@ public class ModifierBehaviour : MonoBehaviour {
         switch (actionModified)
         {
             case ModifierActions.playerLeft:
-                modifierRegionOverlay.color = new Color(0.25f, 0.75f, 0.75f, 0.5f);
+                modifierRegionOverlay.color = new Color(0.75f,0.75f,0.25f,0.5f);
                 break;
             case ModifierActions.playerRight:
                 modifierRegionOverlay.color = new Color(0.75f,0.25f,0.25f,0.5f);
