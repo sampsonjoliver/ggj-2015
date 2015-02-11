@@ -39,7 +39,7 @@ public class PlayerMortality : MonoBehaviour, IFaderListener
 			}
 		}
 		
-		if((Input.GetKeyDown (KeyCode.Return)||Input.GetKeyDown (KeyCode.KeypadEnter))&& restartEnabled)
+		if((Input.GetKeyDown (KeyCode.Return)||Input.GetKeyDown (KeyCode.KeypadEnter)||Input.GetKeyDown (KeyCode.JoystickButton7))&& restartEnabled)
 		{
 			// Restart
 			Application.LoadLevel(Application.loadedLevel);

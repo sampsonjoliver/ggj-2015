@@ -31,7 +31,7 @@ public class PlayerShoot : MonoBehaviour
 	{
 		if(cooldownTimer > 0f)
 			cooldownTimer -= Time.deltaTime;
-        else if (Input.GetMouseButtonDown(0))
+        else if (Input.GetMouseButtonDown(0)||Input.GetKeyDown (KeyCode.JoystickButton1))
         {
             if (actions.getActionEnabled(ModifierActions.playerShoot) && actions.getActionEnabled(ModifierActions.notGrabbing))
             {
@@ -71,7 +71,7 @@ public class PlayerShoot : MonoBehaviour
 		RaycastHit2D cast = Physics2D.Raycast (this.transform.position, this.transform.right, range, LayerMask.GetMask (Layers.Environment));
 		Vector3 endPos = this.transform.position + (this.transform.right * range);
 		Vector2 end = cast.collider == null ? new Vector2(endPos.x, endPos.y) : cast.point;
-		Debug.DrawLine (this.transform.position, end);
+		//Debug.DrawLine (this.transform.position, end);
 		
 		GameObject spawn = (GameObject)GameObject.Instantiate(particle);
 		Vector3 spawnPos = this.transform.position;

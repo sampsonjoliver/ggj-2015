@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ModifierBehaviour : MonoBehaviour {
+public class ModifierBehaviour : MonoBehaviour
+{
     public string actionModified;
     public GameObject target;
     private ModifierActions modifierActions;
@@ -9,7 +10,8 @@ public class ModifierBehaviour : MonoBehaviour {
     private SpriteRenderer modifierRegionOverlay;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+    {
         //collider = GetComponent<Collider2D>();
         modifierActions = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<ModifierActions>();
         modifierRegionOverlay = this.GetComponent<SpriteRenderer>();
@@ -59,7 +61,7 @@ public class ModifierBehaviour : MonoBehaviour {
     {
         if (other.gameObject == target)
         {
-            Debug.Log("Enable: " + actionModified);
+            //Debug.Log("Enable: " + actionModified);
             modifierActions.setActionEnabled(actionModified, true);
         }
     }

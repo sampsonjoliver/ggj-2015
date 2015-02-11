@@ -2770,7 +2770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canExit: 1
-  nextLevel: PickUpTutorial
+  nextLevel: SightTutorial
   fadeAmount: 0
   fadeSpeed: 1
   winClip: {fileID: 8300000, guid: d82774462848d45489805378ed062609, type: 3}
@@ -3966,7 +3966,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1842620582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4996444, y: 1.93607092, z: -.5625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1715909446}

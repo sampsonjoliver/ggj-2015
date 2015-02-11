@@ -32,7 +32,7 @@ public class PlayerGrab : MonoBehaviour
 				Drop ();
 			}
 		}
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1)||Input.GetKeyDown (KeyCode.JoystickButton2))
         {
             if (playerActions.getActionEnabled(ModifierActions.playerGrab))
             {

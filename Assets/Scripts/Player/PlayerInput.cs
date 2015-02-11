@@ -1,45 +1,75 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerInput : MonoBehaviour {
+public class PlayerInput : MonoBehaviour
+{
     private ModifierActions playerActions;
     private Collider2D playerCollider;
     private Animator anim;
     private AnimatorHashIds hash;
     private bool isFacingRight;
+    private float horizontalMovement;
 
     public float horizontalVelocity = 10f;
     public float jumpVelocity = 4f;
 
     private const float groundedMinDist = 0.3f;
     
-    private AudioSource audioSource;
+    //private AudioSource audioSource; // TODO: Add player sounds, like jumping, function fail use etc...
 
     public Transform transformToScale;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+        // Getting the modifier array.
         playerActions = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<ModifierActions>();
+        // Getting the player's collider.
         playerCollider = gameObject.GetComponent<Collider2D>();
-        audioSource = GetComponent<AudioSource>();
+        // Getting player's audio component.
+        //audioSource = GetComponent<AudioSource>();
+        // Getting player's animation component.
         anim = GetComponentInChildren<Animator>();
-        
+        // Getting the animator hash array.
         hash = GameObject.FindGameObjectWithTag(Tags.gameController).GetComponent<AnimatorHashIds>();
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate () {
-        //ApplyGravity();
+    void Update()
+    {
+        // Checking player input every frame.
+        // Moving left right.
+        horizontalMovement = Input.GetAxis("Horizontal");
+        // Restarting level.
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.JoystickButton7))
+        {
+            Application.LoadLevel(Application.loadedLevelName);
+        }
+        // Escaping to main.
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.JoystickButton6))
+        {
+            Application.LoadLevel("Main");
+        }
+        // Player jumping.
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0)) && playerActions.getActionEnabled(ModifierActions.playerJump))
+        {
+            if (CheckGrounded())
+            {
+                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpVelocity);
+                anim.SetBool(hash.jumpingBool, true);
+            }
+        }
+    }
+
+    // Handling physics based movement.
+	void FixedUpdate ()
+    {
         HandleHorizontalMovement();
         HandleVerticalMovement();
-
-        // Jump + other stuff
 	}
 
+    // Moving the player up and down.
     void HandleHorizontalMovement()
     {
-        float horizontalMovement = Input.GetAxis("Horizontal");
-        
         if (horizontalMovement < 0f && playerActions.getActionEnabled(ModifierActions.playerLeft))
         {
             // Apply velocity left
@@ -54,36 +84,16 @@ public class PlayerInput : MonoBehaviour {
             SetPlayerFacingDirection(true);
             anim.SetBool(hash.walkingBool, true);
         }
-        
 		else
 		{
 			rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
             anim.SetBool(hash.walkingBool, false);
 		}
-		
-		if(Input.GetKeyDown(KeyCode.Return)||Input.GetKeyDown (KeyCode.KeypadEnter))
-		{
-			Application.LoadLevel (Application.loadedLevelName);
-		}
-		
-		if(Input.GetKeyDown (KeyCode.Escape))
-		{
-			Application.LoadLevel ("Main");
-		}
-        // Jump + other stuff
 	}
 
+    // Moving the player up and down.
     void HandleVerticalMovement()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && playerActions.getActionEnabled(ModifierActions.playerJump))
-        {
-            if (CheckGrounded())
-            {
-                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpVelocity);
-                anim.SetBool(hash.jumpingBool, true);
-            }
-        }
-        
         if (rigidbody2D.velocity.y < 0)
         {
             anim.SetBool(hash.jumpingBool, false);
@@ -95,19 +105,18 @@ public class PlayerInput : MonoBehaviour {
         }
     }
 
+    // To check if player has landed on an environment object.
     bool CheckGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, (playerCollider.collider2D.bounds.size.y / 2) + groundedMinDist, LayerMask.GetMask(Layers.Environment));
         if (hit.collider != null)
         {
-            // We have hit the ground, huzzah
-            //Debug.Log("In contact with something at " + hit.distance);
             return true;
         }
-        //Debug.Log("Not contact with ground");
         return false;
     }
 
+    // Turning character around if needed.
     public void SetPlayerFacingDirection(bool isFacingRight)
     {
         if (this.isFacingRight != isFacingRight)
@@ -119,11 +128,13 @@ public class PlayerInput : MonoBehaviour {
         }
     }
 
+    // Check facing direction.
     public bool IsPlayerFacingRight()
     {
         return this.isFacingRight;
     }
 
+    // Flipping character...
     public void FlipPlayer()
     {
         Vector3 theScale = transform.localScale;

@@ -2360,7 +2360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canExit: 0
-  nextLevel: SightTutorial
+  nextLevel: EnemyJump
   fadeAmount: 0
   fadeSpeed: 1
   winClip: {fileID: 8300000, guid: d82774462848d45489805378ed062609, type: 3}

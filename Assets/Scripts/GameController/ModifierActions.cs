@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ModifierActions : MonoBehaviour {
+public class ModifierActions : MonoBehaviour
+{
     private Dictionary<string, bool> actionList;
 
     public const string playerLeft = "left";
@@ -14,7 +15,8 @@ public class ModifierActions : MonoBehaviour {
     public const string notGrabbing = "notGrabbing";
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         actionList = new Dictionary<string, bool>();
 	}
 
@@ -31,9 +33,4 @@ public class ModifierActions : MonoBehaviour {
             return true;
         return isEnabled;
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

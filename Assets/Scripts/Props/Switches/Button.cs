@@ -4,14 +4,14 @@ using System.Collections;
 public class Button : Switch {
     public Color onColor = Color.green;
     public Color offColor = Color.red;
-    private Collider2D collider;
+    //private Collider2D collider; // Was not being used.
     private Light light;
 
 	// Use this for initialization
 	void Start ()
 	{
 		base.Start();
-        collider = GetComponent<Collider2D>();
+        //collider = GetComponent<Collider2D>();
         light = GetComponentInChildren<Light>();
 	}
 	
