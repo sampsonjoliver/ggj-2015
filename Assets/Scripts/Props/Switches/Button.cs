@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Button : Switch {
+public class Button : Switch
+{
     public Color onColor = Color.green;
     public Color offColor = Color.red;
     //private Collider2D collider; // Was not being used.
@@ -14,18 +15,13 @@ public class Button : Switch {
         //collider = GetComponent<Collider2D>();
         light = GetComponentInChildren<Light>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-
-    }
 
     protected override void SwitchStateOn()
     {
         // TODO flip any lights and such
         SetColor(isSwitchedStateOn);
 
-        Debug.Log("Toggled on");
+        // Debug.Log("Toggled on");
         // Update attached objects
         foreach (Switchable affectedSwitch in affectedObjects)
         {
@@ -38,7 +34,7 @@ public class Button : Switch {
         // TODO Flip any lights and such
         SetColor(isSwitchedStateOn);
 
-        Debug.Log("Toggled off");
+        // Debug.Log("Toggled off");
         // Update attached objects
         foreach (Switchable affectedSwitch in affectedObjects)
         {
